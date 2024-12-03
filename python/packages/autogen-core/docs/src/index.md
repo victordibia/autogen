@@ -9,100 +9,129 @@ sd_hide_title: true
 
 <style>
 .hero-title {
-  font-size: 60px;
+  font-size: 45px !important;
   font-weight: bold;
-  margin: 2rem auto 0;
+  margin: 2rem auto 0 !important;
 }
-
-.wip-card {
-  border: 1px solid var(--pst-color-success);
-  background-color: var(--pst-color-success-bg);
-  border-radius: .25rem;
-  padding: 0.3rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 1rem;
+button.gs-button {
+  margin: 4px 0px 5px 0px;
+  padding: 6px 12px 6px 12px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  font-size: 15px;
+}
+.version-text{
+  font-size: 12px;
+  color: #6c757d;
+  font-weight: normal;
+}   
+.logo {
+  width: 50px;
+  height: 50px; 
+  margin-bottom: 30px;
+  display: inline-block;
 }
 </style>
 
 # AutoGen
 
 <div class="container">
+   
 <div class="row text-center">
 <div class="col-sm-12">
+<!-- <span class="version-text">v0.4.0-dev released </span> -->
 <h1 class="hero-title">
-AutoGen
+<img src="_static/images/logo/logo.svg" alt="AutoGen" class="logo" />
+AutoGen 
 </h1>
 <h3>
 A framework for building AI agents and multi-agent applications
 </h3>
 </div>
 </div>
-</div>
 
-<div style="margin-top: 2rem;">
+::::{grid} 2
+:::{grid-item-card} {fas}`people-group;pst-color-primary` AgentChat
+:link: user-guide/agentchat-user-guide/index.html
 
-::::{grid} 1 1 2 2
-
-:::{grid-item-card}
-:shadow: none
-:margin: 2 0 0 0
-
-<div class="wip-card">
-
-{fas}`triangle-exclamation` Work in progress
-</div>
-
-<div class="sd-card-title sd-font-weight-bold docutils">
-
-{fas}`people-group;pst-color-primary`
-AgentChat </div>
-High-level API that includes preset agents and teams for building multi-agent systems.
-
-```sh
-pip install 'autogen-agentchat==0.4.0.dev8'
-```
-
-💡 *Start here if you are looking for an API similar to AutoGen 0.2*
+For Beginners
+^^^
+A High-level API that includes preset agents and teams for building multi-agent systems.
 
 +++
 
-```{button-ref} user-guide/agentchat-user-guide/quickstart
-:color: secondary
-
-Get Started
-```
+<button onclick="location.href='user-guide/agentchat-user-guide/index.html'" class="gs-button col-sm">Get Started</button>
 
 :::
 :::{grid-item-card} {fas}`cube;pst-color-primary` Core
-:shadow: none
-:margin: 2 0 0 0
+:link: user-guide/core-user-guide/index.html
 
+For Advanced Users
+^^^
 Provides building blocks for creating asynchronous, event driven multi-agent systems.
 
-```sh
-pip install 'autogen-core==0.4.0.dev8'
-```
-
 +++
-
-```{button-ref} user-guide/core-user-guide/quickstart
-:color: secondary
-
-Get Started
-```
-
+<button onclick="location.href='user-guide/core-user-guide/index.html'" class="gs-button col-sm">Get Started</button>
 :::
 ::::
 
-</div>
+<br/>
+<br/>
+
+::::{grid} 2
+
+:::{grid-item}
+
+## Gettting Started
+
+<br />
+AgentChat makes it easy to create apps where multiple agents interact to solve tasks.
+
+<br />
+<br />
+
+<button onclick="location.href='user-guide/agentchat-user-guide/examples/index.html'" class="gs-button col-sm">View Examples &nbsp; {fas}`angle-right;pst-color-primary`</button>
+
+:::
+:::{grid-item}
+![AgentChat](./images/code.svg)
+:::
+
+::::
+
+<!-- ```{include} agentchat-user-guide/stocksnippet.md
+
+``` -->
 
 ```{toctree}
 :maxdepth: 3
 :hidden:
 
-user-guide/index
+user-guide/agentchat-user-guide/index
+```
+
+```{toctree}
+:maxdepth: 3
+:hidden:
+
+user-guide/core-user-guide/index
+```
+
+```{toctree}
+:maxdepth: 3
+:hidden:
+/user-guide/extensions-user-guide/index.md
+```
+
+```{toctree}
+:maxdepth: 1
+:hidden:
 packages/index
+```
+
+```{toctree}
+:maxdepth: 3
+:hidden:
 reference/index
 ```

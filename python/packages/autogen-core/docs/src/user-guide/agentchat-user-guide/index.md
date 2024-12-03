@@ -55,7 +55,7 @@ Sample code and use cases
 ::::
 
 ```{toctree}
-:maxdepth: 1
+:maxdepth: 2
 :hidden:
 
 installation

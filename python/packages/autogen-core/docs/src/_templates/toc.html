@@ -1,0 +1,26 @@
+{#- Template for the on-page TOC -#}
+
+<aside id="right-sidebar" class="hidden text-sm xl:block">
+  <div class="sticky top-16 -mt-10 max-h-[calc(100vh-5rem)] overflow-y-auto pt-6 space-y-2">
+    {%- block toc_before %}{%- endblock -%}
+    <p class="font-medium">On this page</p>
+    {{ toc }}
+    {%- block toc_after %}{%- endblock -%} 
+
+    
+    {% if display_github %}
+            <div class="show-on-github">
+              <a class="text-sm leading-loose text-muted-foreground" href="https://github.com/{{ github_user }}/{{ github_repo }}/blob/{{ github_version }}/{{ conf_py_path }}
+            {%- if page_source_suffix == '.ipynb' -%}
+                {{ pagename }}.ipynb
+            {%- elif page_source_suffix == '.md' -%}
+                {{ pagename }}.md
+            {%- else -%}
+                {{ pagename }}.rst
+            {%- endif -%}">
+                <span class="fa-brands fa-github"></span> Show on GitHub
+            </a>
+            </div>
+        {% endif %} 
+  </div>
+</aside>
