@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en"
+      data-content_root="../../../../../"
+      x-data="{ darkMode: localStorage.getItem('darkMode') || localStorage.setItem('darkMode', 'system'), activeSection: '' }"
+      x-init="$watch('darkMode', val => localStorage.setItem('darkMode', val))"
+      class="scroll-smooth"
+      :class="{'dark': darkMode === 'dark' || (darkMode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)}"
+>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="white" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black" />
+  
+    <title>autogen_core.components.code_executor._impl.command_line_code_result | AutoGen</title>
+    <meta property="og:title" content="autogen_core.components.code_executor._impl.command_line_code_result | AutoGen" />
+    <meta name="twitter:title" content="autogen_core.components.code_executor._impl.command_line_code_result | AutoGen" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=3d3fbe02" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/theme.css?v=42baaae4" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=ebe0eec8" />
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/awesome-sphinx-design.css?v=15e0fffa" />
+    <link rel="canonical" href="/autogen/dev/_modules/autogen_core/components/code_executor/_impl/command_line_code_result.html" />
+      <link rel="icon" href="../../../../../_static/favicon-512x512.png" />
+        <link rel="search" title="Search" href="../../../../../search.html" />
+        <link rel="index" title="Index" href="../../../../../genindex.html" />
+
+    <script>
+    <!-- Prevent Flash of wrong theme -->
+      const userPreference = localStorage.getItem('darkMode');
+      let mode;
+      if (userPreference === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        mode = 'dark';
+        document.documentElement.classList.add('dark');
+      } else {
+        mode = 'light';
+      }
+      if (!userPreference) {localStorage.setItem('darkMode', mode)}
+     
+      function closeAnnouncement() {
+          var announcementBar = document.getElementById('announcementBar');
+          if (announcementBar) {
+              announcementBar.style.animation = 'fadeOut 0.5s ease forwards';
+              setTimeout(() => {
+                  announcementBar.remove();
+              }, 500);
+          }
+      }
+    </script>
+</head>
+  <body x-data="{ showSidebar: false, showScrollTop: false }" class="min-h-screen font-sans antialiased bg-background text-foreground" :class="{ 'overflow-hidden': showSidebar }">
+    <div x-cloak x-show="showSidebar" class="fixed inset-0 z-50 overflow-hidden bg-background/80 backdrop-blur-sm md:hidden" @click.self="showSidebar = false"></div><div id="page" class="relative flex flex-col min-h-screen">
+    
+    
+    <div id="announcementBar" class="announcementbar">
+      <div class="announcementbar-content">
+        <div class="announcementbar-message"><span class="fa-solid fa-triangle-exclamation"></span> AutoGen v0.4 is a work in progress. Go <a href="https://microsoft.github.io/autogen/0.2/">here</a> to continue using v0.2 documentation.</div>
+        <button class="announcement-close-button" onclick="closeAnnouncement()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+    <a href="#content" class="absolute top-0 left-0 z-[100] block bg-background p-4 text-xl transition -translate-x-full opacity-0 focus:translate-x-0 focus:opacity-100">
+      Skip to content
+    </a><header
+  class="sticky top-0 z-40 w-full border-b shadow-sm border-border supports-backdrop-blur:bg-background/60 bg-background/95 backdrop-blur"><div class="container flex items-center h-14">
+    <div class="hidden mr-4 md:flex">
+      <a href="../../../../../index.html" class="flex items-center mr-6">
+          <img height="24" width="24" class="mr-2 dark:invert" src="../../../../../_static/logo.svg" alt="Logo" /><span class="hidden font-bold sm:inline-block text-clip whitespace-nowrap">AutoGen</span>
+      </a><nav class="flex items-center space-x-6 text-sm font-medium">
+        <a href="/index.html" class="transition-colors hover:text-foreground/80 text-foreground/60">Docs</a>
+      </nav></div><button
+      class="inline-flex items-center justify-center h-10 px-0 py-2 mr-2 text-base font-medium transition-colors rounded-md hover:text-accent-foreground hover:bg-transparent md:hidden"
+      type="button" @click="showSidebar = true">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 96 960 960" aria-hidden="true"
+        fill="currentColor">
+        <path
+          d="M152.587 825.087q-19.152 0-32.326-13.174t-13.174-32.326q0-19.152 13.174-32.326t32.326-13.174h440q19.152 0 32.326 13.174t13.174 32.326q0 19.152-13.174 32.326t-32.326 13.174h-440Zm0-203.587q-19.152 0-32.326-13.174T107.087 576q0-19.152 13.174-32.326t32.326-13.174h320q19.152 0 32.326 13.174T518.087 576q0 19.152-13.174 32.326T472.587 621.5h-320Zm0-203.587q-19.152 0-32.326-13.174t-13.174-32.326q0-19.152 13.174-32.326t32.326-13.174h440q19.152 0 32.326 13.174t13.174 32.326q0 19.152-13.174 32.326t-32.326 13.174h-440ZM708.913 576l112.174 112.174q12.674 12.674 12.674 31.826t-12.674 31.826Q808.413 764.5 789.261 764.5t-31.826-12.674l-144-144Q600 594.391 600 576t13.435-31.826l144-144q12.674-12.674 31.826-12.674t31.826 12.674q12.674 12.674 12.674 31.826t-12.674 31.826L708.913 576Z" />
+      </svg>
+      <span class="sr-only">Toggle navigation menu</span>
+    </button>
+    <div class="flex items-center justify-between flex-1 space-x-2 sm:space-x-4 md:justify-end">
+      <div class="flex-1 w-full md:w-auto md:flex-none"><form id="searchbox"
+      action="../../../../../search.html"
+      method="get"
+      class="relative flex items-center group"
+      @keydown.k.window.meta="$refs.search.focus()">
+  <input x-ref="search"
+          name="q"
+          id="search-input"
+          type="search"
+          aria-label="Search the docs"
+          placeholder="Search ..."
+          class="inline-flex items-center font-medium transition-colors bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background border border-input hover:bg-accent focus:bg-accent hover:text-accent-foreground focus:text-accent-foreground hover:placeholder-accent-foreground py-2 px-4 relative h-9 w-full justify-start rounded-[0.5rem] text-sm text-muted-foreground sm:pr-12 md:w-40 lg:w-64" />
+  <kbd class="pointer-events-none absolute right-1.5 top-2 hidden h-5 select-none text-muted-foreground items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex group-hover:bg-accent group-hover:text-accent-foreground">
+    <span class="text-xs">⌘</span>
+    K
+  </kbd>
+</form>
+      </div>
+      <nav class="flex items-center space-x-1">
+        <a href="https://twitter.com/pyautogen" title="Visit Twitter" rel="noopener nofollow">
+          <div
+            class="inline-flex items-center justify-center px-0 text-sm font-medium transition-colors rounded-md disabled:opacity-50 disabled:pointer-events-none hover:bg-accent hover:text-accent-foreground h-9 w-9">
+            <svg height="22px" style="margin-top:-2px;display:inline" viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+          </div>
+        </a>
+        
+        <a href="https://github.com/microsoft/agnext" title="Visit GitHub" rel="noopener nofollow">
+          <div
+            class="inline-flex items-center justify-center px-0 text-sm font-medium transition-colors rounded-md disabled:opacity-50 disabled:pointer-events-none hover:bg-accent hover:text-accent-foreground h-9 w-9">
+            <svg height="22px" style="margin-top:-2px;display:inline" viewBox="0 0 45 44" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M22.477.927C10.485.927.76 10.65.76 22.647c0 9.596 6.223 17.736 14.853 20.608 1.087.2 1.483-.47 1.483-1.047 0-.516-.019-1.881-.03-3.693-6.04 1.312-7.315-2.912-7.315-2.912-.988-2.51-2.412-3.178-2.412-3.178-1.972-1.346.149-1.32.149-1.32 2.18.154 3.327 2.24 3.327 2.24 1.937 3.318 5.084 2.36 6.321 1.803.197-1.403.759-2.36 1.379-2.903-4.823-.548-9.894-2.412-9.894-10.734 0-2.37.847-4.31 2.236-5.828-.224-.55-.969-2.759.214-5.748 0 0 1.822-.584 5.972 2.226 1.732-.482 3.59-.722 5.437-.732 1.845.01 3.703.25 5.437.732 4.147-2.81 5.967-2.226 5.967-2.226 1.185 2.99.44 5.198.217 5.748 1.392 1.517 2.232 3.457 2.232 5.828 0 8.344-5.078 10.18-9.916 10.717.779.67 1.474 1.996 1.474 4.021 0 2.904-.027 5.247-.027 5.96 0 .58.392 1.256 1.493 1.044C37.981 40.375 44.2 32.24 44.2 22.647c0-11.996-9.726-21.72-21.722-21.72" fill="currentColor"/></svg>
+          </div>
+        </a>
+        
+        <a href="/packages" title="Visit Packages" rel="noopener nofollow">
+          <div
+            class="inline-flex items-center justify-center px-0 text-sm font-medium transition-colors rounded-md disabled:opacity-50 disabled:pointer-events-none hover:bg-accent hover:text-accent-foreground h-9 w-9">
+            <svg width="22" height="20" viewBox="0 0 118 105" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.6645 40.4581L34.2565 46.4975L51.0948 40.3685L34.5029 34.329L17.6645 40.4581ZM34.329 26.8229L50.922 32.8623L67.7593 26.7333L51.1674 20.6938L34.329 26.8229Z" fill="#F7F7F4" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M34.329 26.8229L50.922 32.8624V52.3631L34.329 46.3247V26.8229Z" fill="#EFEEEA" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M1 66.2116L17.592 72.2521L34.4303 66.1231L17.8373 60.0836L1 66.2116Z" fill="#F7F7F4" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M1 66.2117L17.592 72.2522V91.753L1 85.7146V66.2117Z" fill="#EFEEEA" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M1 38.4783L17.592 44.5189L34.4303 38.3898L17.8373 32.3503L1 38.4783Z" fill="#F7F7F4" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M17.5919 44.5189V64.0196L34.4303 57.8916V38.3898L17.5919 44.5189Z" fill="white" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M1 38.4783L17.592 44.5189V64.0196L1 57.9812V38.4783Z" fill="#EFEEEA" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M17.6634 72.2725L34.2564 78.3119V97.8137L17.6645 91.7743L17.6634 72.2725Z" fill="#EFEEEA" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M17.6634 52.5775L34.2564 58.617L51.0948 52.4879L34.5028 46.4495L17.6634 52.5775Z" fill="#F7F7F4" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M17.6634 52.5775L34.2564 58.617V78.1188L17.6645 72.0794L17.6634 52.5775Z" fill="#EFEEEA" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M100.917 66.1913V85.6932L117.754 79.5652V60.0634L100.917 66.1913Z" fill="white" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M84.251 72.2521V91.7529L101.089 85.6249V66.123L84.251 72.2521Z" fill="#FFD242" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M98.0377 77.0062C98.0378 77.4582 97.9542 77.9362 97.7917 78.413C97.6292 78.8897 97.391 79.3559 97.0907 79.7848C96.7904 80.2137 96.4338 80.5969 96.0414 80.9127C95.6489 81.2284 95.2283 81.4704 94.8036 81.6249C93.9463 81.9367 93.1241 81.8734 92.5178 81.4489C91.9116 81.0245 91.5708 80.2736 91.5705 79.3614C91.5703 78.9095 91.6539 78.4316 91.8163 77.9549C91.9787 77.4782 92.2168 77.0121 92.517 76.5832C92.8172 76.1543 93.1737 75.771 93.566 75.4552C93.9583 75.1394 94.3789 74.8973 94.8036 74.7428C95.2283 74.5882 95.6488 74.5241 96.0412 74.5542C96.4336 74.5844 96.7901 74.7081 97.0904 74.9184C97.3908 75.1287 97.629 75.4214 97.7915 75.7798C97.9541 76.1382 98.0377 76.5543 98.0377 77.0062Z" fill="white"/><path d="M67.5865 78.3119V97.8137L84.4249 91.6847V72.1829L67.5865 78.3119Z" fill="#FFD242" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M50.922 84.3717V103.873L67.7593 97.7444V78.2437L50.922 84.3717Z" fill="white" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M34.329 78.3322L50.922 84.3716V103.873L34.329 97.834V78.3322Z" fill="#EFEEEA" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M100.917 46.4975V65.9983L117.754 59.8703V40.3685L100.917 46.4975Z" fill="#FFD242" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M84.3235 20.7632L100.917 26.8026L117.754 20.6736L101.162 14.6341L84.3235 20.7632Z" fill="#FFC91D" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M100.917 26.8026V46.3034L117.754 40.1754V20.6736L100.917 26.8026ZM84.251 52.5572V72.058L101.089 65.93V46.4282L84.251 52.5572Z" fill="#FFD242" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M84.251 32.8624V52.3631L101.089 46.2351V26.7333L84.251 32.8624Z" fill="#3775A9" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M67.6591 7.12799L84.251 13.1674L101.089 7.03839L84.4974 1L67.6591 7.12799Z" fill="#2F6491" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M84.251 13.1664V32.6682L101.089 26.5402V7.03839L84.251 13.1664Z" fill="#3775A9" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M67.5865 58.617V78.1188L84.4249 71.9898V52.4879L67.5865 58.617Z" fill="#FFD242" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M67.5865 38.9221V58.4239L84.4249 52.2948V32.793L67.5865 38.9221ZM50.922 64.6767V84.1785L67.7593 78.0495V58.5487L50.922 64.6767Z" fill="#3775A9" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M34.329 58.6383L50.922 64.6767V84.1786L34.329 78.1391V58.6383ZM34.329 38.9424L50.922 44.9818L67.7593 38.8538L51.1674 32.8144L34.329 38.9424Z" fill="#2F6491" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M50.922 44.9818V64.4836L67.7593 58.3546V38.8538L50.922 44.9818Z" fill="#3775A9" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M34.329 38.9423L50.922 44.9818V64.4836L34.329 58.4442V38.9423ZM50.9946 13.1877L67.5865 19.2272L84.4249 13.0981L67.8319 7.05972L50.9946 13.1877Z" fill="#2F6491" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M67.5865 19.2272V38.729L84.4249 32.5999V13.0981L67.5865 19.2272Z" fill="#3775A9" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M50.9946 13.1877L67.5865 19.2272V38.729L50.9946 32.6895V13.1877Z" fill="#2F6491" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M77.1065 25.4906C77.1066 25.9426 77.023 26.4206 76.8605 26.8974C76.6981 27.3741 76.4598 27.8403 76.1595 28.2692C75.8592 28.6981 75.5026 29.0813 75.1102 29.3971C74.7177 29.7128 74.2971 29.9548 73.8724 30.1093C73.4477 30.2639 73.0271 30.3279 72.6347 30.2978C72.2424 30.2677 71.8858 30.1439 71.5855 29.9336C71.2852 29.7233 71.0469 29.4306 70.8844 29.0722C70.7219 28.7138 70.6382 28.2967 70.6382 27.8448C70.6381 27.3928 70.7217 26.9148 70.8842 26.438C71.0467 25.9613 71.2849 25.4951 71.5853 25.0662C71.8856 24.6373 72.2422 24.254 72.6346 23.9383C73.027 23.6226 73.4476 23.3806 73.8724 23.2261C74.2971 23.0715 74.7176 23.0074 75.11 23.0376C75.5024 23.0677 75.8589 23.1915 76.1593 23.4018C76.4596 23.612 76.6978 23.9047 76.8603 24.2632C77.0229 24.6216 77.1065 25.0387 77.1065 25.4906Z" fill="white"/></svg>
+          </div>
+        </a>
+        
+        <button @click="darkMode = darkMode === 'light' ? 'dark' : 'light'"
+          class="relative inline-flex items-center justify-center px-0 text-sm font-medium transition-colors rounded-md hover:bg-accent hover:text-accent-foreground h-9 w-9"
+          type="button"
+          aria-label="Color theme switcher">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 96 960 960" fill="currentColor"
+            class="absolute transition-all scale-100 rotate-0 dark:-rotate-90 dark:scale-0">
+            <path
+              d="M480 685q45.456 0 77.228-31.772Q589 621.456 589 576q0-45.456-31.772-77.228Q525.456 467 480 467q-45.456 0-77.228 31.772Q371 530.544 371 576q0 45.456 31.772 77.228Q434.544 685 480 685Zm0 91q-83 0-141.5-58.5T280 576q0-83 58.5-141.5T480 376q83 0 141.5 58.5T680 576q0 83-58.5 141.5T480 776ZM80 621.5q-19.152 0-32.326-13.174T34.5 576q0-19.152 13.174-32.326T80 530.5h80q19.152 0 32.326 13.174T205.5 576q0 19.152-13.174 32.326T160 621.5H80Zm720 0q-19.152 0-32.326-13.174T754.5 576q0-19.152 13.174-32.326T800 530.5h80q19.152 0 32.326 13.174T925.5 576q0 19.152-13.174 32.326T880 621.5h-80Zm-320-320q-19.152 0-32.326-13.174T434.5 256v-80q0-19.152 13.174-32.326T480 130.5q19.152 0 32.326 13.174T525.5 176v80q0 19.152-13.174 32.326T480 301.5Zm0 720q-19.152 0-32.326-13.17Q434.5 995.152 434.5 976v-80q0-19.152 13.174-32.326T480 850.5q19.152 0 32.326 13.174T525.5 896v80q0 19.152-13.174 32.33-13.174 13.17-32.326 13.17ZM222.174 382.065l-43-42Q165.5 327.391 166 308.239t13.174-33.065q13.435-13.674 32.587-13.674t32.065 13.674l42.239 43q12.674 13.435 12.555 31.706-.12 18.272-12.555 31.946-12.674 13.674-31.445 13.413-18.772-.261-32.446-13.174Zm494 494.761-42.239-43q-12.674-13.435-12.674-32.087t12.674-31.565Q686.609 756.5 705.38 757q18.772.5 32.446 13.174l43 41.761Q794.5 824.609 794 843.761t-13.174 33.065Q767.391 890.5 748.239 890.5t-32.065-13.674Zm-42-494.761Q660.5 369.391 661 350.62q.5-18.772 13.174-32.446l41.761-43Q728.609 261.5 747.761 262t33.065 13.174q13.674 13.435 13.674 32.587t-13.674 32.065l-43 42.239q-13.435 12.674-31.706 12.555-18.272-.12-31.946-12.555Zm-495 494.761Q165.5 863.391 165.5 844.239t13.674-32.065l43-42.239q13.435-12.674 32.087-12.674t31.565 12.674Q299.5 782.609 299 801.38q-.5 18.772-13.174 32.446l-41.761 43Q231.391 890.5 212.239 890t-33.065-13.174ZM480 576Z" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 96 960 960" fill="currentColor"
+            class="absolute transition-all scale-0 rotate-90 dark:rotate-0 dark:scale-100">
+            <path
+              d="M480 936q-151 0-255.5-104.5T120 576q0-138 90-239.5T440 218q25-3 39 18t-1 44q-17 26-25.5 55t-8.5 61q0 90 63 153t153 63q31 0 61.5-9t54.5-25q21-14 43-1.5t19 39.5q-14 138-117.5 229T480 936Zm0-80q88 0 158-48.5T740 681q-20 5-40 8t-40 3q-123 0-209.5-86.5T364 396q0-20 3-40t8-40q-78 32-126.5 102T200 576q0 116 82 198t198 82Zm-10-270Z" />
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </div>
+</header>
+
+    <div class="flex-1"><div class="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10"><aside id="left-sidebar"
+  class="fixed inset-y-0 left-0 md:top-14 z-50 md:z-30 bg-background md:bg-transparent transition-all duration-100 -translate-x-full md:translate-x-0 ml-0 p-6 md:p-0 md:-ml-2 md:h-[calc(100vh-3.5rem)] w-5/6 md:w-full shrink-0 overflow-y-auto border-r border-border md:sticky"
+  :aria-hidden="!showSidebar" :class="{ 'translate-x-0': showSidebar }">
+
+    <a href="../../../../../index.html" class="!justify-start text-sm md:!hidden bg-background">
+        <img height="16" width="16" class="mr-2 dark:invert" src="../../../../../_static/logo.svg" alt="Logo" /><span class="font-bold text-clip whitespace-nowrap">AutoGen</span>
+    </a>
+
+    <div class="relative overflow-hidden md:overflow-auto my-4 md:my-0 h-[calc(100vh-8rem)] md:h-auto">
+      <div class="overflow-y-auto h-full w-full relative pr-6"><nav class="flex md:hidden flex-col font-medium mt-4">
+  <a href="/index.html">Docs</a>
+</nav><nav class="table w-full min-w-full my-6 lg:my-8">
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../user-guide/agentchat-user-guide/index.html">AgentChat</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../user-guide/agentchat-user-guide/installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../user-guide/agentchat-user-guide/quickstart.html">Quickstart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../user-guide/agentchat-user-guide/tutorial/index.html">Tutorial</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/agentchat-user-guide/tutorial/models.html">Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/agentchat-user-guide/tutorial/agents.html">Agents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/agentchat-user-guide/tutorial/teams.html">Teams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/agentchat-user-guide/tutorial/selector-group-chat.html">Selector Group Chat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/agentchat-user-guide/tutorial/swarm.html">Swarm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/agentchat-user-guide/tutorial/termination.html">Termination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/agentchat-user-guide/tutorial/termination.html#autogen-provides-several-built-in-termination-conditions">AutoGen provides several built-in termination conditions:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/agentchat-user-guide/tutorial/custom-agents.html">Custom Agents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../user-guide/agentchat-user-guide/examples/index.html">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/agentchat-user-guide/examples/travel-planning.html">Travel Planning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/agentchat-user-guide/examples/company-research.html">Company Research</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/agentchat-user-guide/examples/literature-review.html">Literature Review</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../user-guide/core-user-guide/index.html">Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../user-guide/core-user-guide/quickstart.html">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../user-guide/core-user-guide/core-concepts/index.html">Core Concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/core-concepts/agent-and-multi-agent-application.html">Agent and Multi-Agent Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/core-concepts/architecture.html">Agent Runtime Environments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/core-concepts/api-layers.html">API Layers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/core-concepts/application-stack.html">Application Stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/core-concepts/agent-identity-and-lifecycle.html">Agent Identity and Lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/core-concepts/topic-and-subscription.html">Topic and Subscription</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../user-guide/core-user-guide/framework/index.html">Framework Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/framework/agent-and-agent-runtime.html">Agent and Agent Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/framework/message-and-communication.html">Message and Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/framework/model-clients.html">Model Clients</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/framework/tools.html">Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/framework/logging.html">Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/framework/telemetry.html">Open Telemetry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/framework/command-line-code-executors.html">Command Line Code Executors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/framework/distributed-agent-runtime.html">Distributed Agent Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/framework/distributed-agent-runtime.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../user-guide/core-user-guide/design-patterns/index.html">Multi-Agent Design Patterns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/design-patterns/group-chat.html">Group Chat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/design-patterns/handoffs.html">Handoffs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/design-patterns/mixture-of-agents.html">Mixture of Agents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/design-patterns/multi-agent-debate.html">Multi-Agent Debate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/design-patterns/reflection.html">Reflection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../user-guide/core-user-guide/cookbook/index.html">Cookbook</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/cookbook/azure-openai-with-aad-auth.html">Azure OpenAI with AAD Auth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/cookbook/termination-with-intervention.html">Termination using Intervention Handler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/cookbook/tool-use-with-intervention.html">User Approval for Tool Execution using Intervention Handler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/cookbook/extracting-results-with-an-agent.html">Extracting Results with an Agent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/cookbook/openai-assistant-agent.html">OpenAI Assistant Agent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/cookbook/langgraph-agent.html">Using LangGraph-Backed Agent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/cookbook/llamaindex-agent.html">Using LlamaIndex-Backed Agent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/cookbook/local-llms-ollama-litellm.html">Local LLMs with LiteLLM &amp; Ollama</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/cookbook/instrumenting.html">Instrumentating your code locally</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/cookbook/topic-subscription-scenarios.html">Topic and Subscription Example Scenarios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../user-guide/core-user-guide/cookbook/structured-output-agent.html">Structured output using GPT-4o models</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../user-guide/core-user-guide/faqs.html">FAQs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../user-guide/extensions-user-guide/index.html">Extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../user-guide/extensions-user-guide/azure-container-code-executor.html">ACA Dynamic Sessions Code Executor</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../packages/index.html">Packages</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../reference/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../reference/python/autogen_agentchat/autogen_agentchat.html">autogen_agentchat</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../reference/python/autogen_agentchat/autogen_agentchat.agents.html">autogen_agentchat.agents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../reference/python/autogen_agentchat/autogen_agentchat.base.html">autogen_agentchat.base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../reference/python/autogen_agentchat/autogen_agentchat.logging.html">autogen_agentchat.logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../reference/python/autogen_agentchat/autogen_agentchat.task.html">autogen_agentchat.task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../reference/python/autogen_agentchat/autogen_agentchat.teams.html">autogen_agentchat.teams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../reference/python/autogen_agentchat/autogen_agentchat.messages.html">autogen_agentchat.messages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../reference/python/autogen_core/autogen_core.html">autogen_core</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../reference/python/autogen_core/autogen_core.application.html">autogen_core.application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../reference/python/autogen_core/autogen_core.base.html">autogen_core.base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../reference/python/autogen_core/autogen_core.components.html">autogen_core.components</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../../reference/python/autogen_ext/autogen_ext.html">autogen_ext</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../reference/python/autogen_ext/autogen_ext.agents.html">autogen_ext.agents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../reference/python/autogen_ext/autogen_ext.code_executors.html">autogen_ext.code_executors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../reference/python/autogen_ext/autogen_ext.models.html">autogen_ext.models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../../reference/python/autogen_ext/autogen_ext.tools.html">autogen_ext.tools</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</nav>
+      </div>
+    </div>
+    <button type="button" @click="showSidebar = false"
+      class="absolute md:hidden right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 96 960 960" fill="currentColor"
+        stroke="none" class="h-4 w-4">
+        <path
+          d="M480 632 284 828q-11 11-28 11t-28-11q-11-11-11-28t11-28l196-196-196-196q-11-11-11-28t11-28q11-11 28-11t28 11l196 196 196-196q11-11 28-11t28 11q11 11 11 28t-11 28L536 576l196 196q11 11 11 28t-11 28q-11 11-28 11t-28-11L480 632Z" />
+      </svg>
+    </button>
+  </aside>
+        <main class="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
+<div class="w-full min-w-0 mx-auto">
+<nav aria-label="breadcrumbs"
+     class="flex items-center mb-4 space-x-1 text-sm text-muted-foreground">
+  <a class="overflow-hidden text-ellipsis whitespace-nowrap hover:text-foreground"
+     href="../../../../../index.html">
+    <span class="hidden md:inline">AutoGen</span>
+    <svg xmlns="http://www.w3.org/2000/svg"
+         height="18"
+         width="18"
+         viewBox="0 96 960 960"
+         aria-label="Home"
+         fill="currentColor"
+         stroke="none"
+         class="md:hidden">
+      <path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z" />
+    </svg>
+  </a>
+  
+<div class="mr-1">/</div><a class="hover:text-foreground overflow-hidden text-ellipsis whitespace-nowrap"
+       href="../../../../index.html">Module code</a>
+    
+<div class="mr-1">/</div><span aria-current="page"
+        class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">autogen_core.components.code_executor._impl.command_line_code_result</span>
+</nav>
+
+    <div id="content" role="main">
+      <h1>Source code for autogen_core.components.code_executor._impl.command_line_code_result</h1><div class="highlight"><pre>
+<span></span><code><span id="line-1"><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+</span><span id="line-2"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+</span><span id="line-3">
+</span><span id="line-4"><span class="kn">from</span> <span class="nn">.._base</span> <span class="kn">import</span> <span class="n">CodeResult</span>
+</span><span id="line-5">
+</span><span id="line-6">
+<div class="viewcode-block" id="CommandLineCodeResult">
+<a class="viewcode-back" href="../../../../../reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.CommandLineCodeResult">[docs]</a>
+</span><span id="line-7"><span class="nd">@dataclass</span>
+</span><span id="line-8"><span class="k">class</span> <span class="nc">CommandLineCodeResult</span><span class="p">(</span><span class="n">CodeResult</span><span class="p">):</span>
+</span><span id="line-9"><span class="w">    </span><span class="sd">&quot;&quot;&quot;A code result class for command line code executor.&quot;&quot;&quot;</span>
+</span><span id="line-10">
+</span><span id="line-11">    <span class="n">code_file</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></div>
+
+</span></code></pre></div>
+    </div></div>
+          
+        </main>
+      </div>
+    </div><footer class="py-6 border-t border-border md:py-0">
+    <div class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
+      <div class="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
+        <p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2024, Microsoft&nbsp;. Built with <a class="font-medium underline underline-offset-4"
+    href="https://www.sphinx-doc.org"
+    rel="noreferrer">Sphinx 8.1.3</a><ul class="list-unstyled text-sm leading-loose text-right text-muted-foreground md:text-right">
+        <li>  |  <a class="  underline underline-offset-4" href="https://go.microsoft.com/fwlink/?LinkId=521839">Privacy Policy</a> | <a class="  underline underline-offset-4"   href="https://go.microsoft.com/fwlink/?linkid=2259814">Consumer Health Privacy</a> </li>
+
+      </ul></p>
+</div>
+</div>
+</footer>
+  </div>
+  
+    <script src="../../../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script defer="defer" src="../../../../../_static/theme.js?v=073f68d9"></script>
+    <script src="../../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script></script>
+  
+</body>
+</html>

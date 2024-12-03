@@ -1,0 +1,2277 @@
+<!DOCTYPE html>
+<html lang="en"
+      data-content_root="./"
+      x-data="{ darkMode: localStorage.getItem('darkMode') || localStorage.setItem('darkMode', 'system'), activeSection: '' }"
+      x-init="$watch('darkMode', val => localStorage.setItem('darkMode', val))"
+      class="scroll-smooth"
+      :class="{'dark': darkMode === 'dark' || (darkMode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)}"
+>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="white" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black" />
+  
+    <title>Index | AutoGen</title>
+    <meta property="og:title" content="Index | AutoGen" />
+    <meta name="twitter:title" content="Index | AutoGen" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=3d3fbe02" />
+      <link rel="stylesheet" type="text/css" href="_static/theme.css?v=42baaae4" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=ebe0eec8" />
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+      <link rel="stylesheet" type="text/css" href="_static/awesome-sphinx-design.css?v=15e0fffa" />
+    <link rel="canonical" href="/autogen/dev/genindex.html" />
+      <link rel="icon" href="_static/favicon-512x512.png" />
+        <link rel="search" title="Search" href="search.html" />
+        <link rel="index" title="Index" href="#" />
+
+    <script>
+    <!-- Prevent Flash of wrong theme -->
+      const userPreference = localStorage.getItem('darkMode');
+      let mode;
+      if (userPreference === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        mode = 'dark';
+        document.documentElement.classList.add('dark');
+      } else {
+        mode = 'light';
+      }
+      if (!userPreference) {localStorage.setItem('darkMode', mode)}
+     
+      function closeAnnouncement() {
+          var announcementBar = document.getElementById('announcementBar');
+          if (announcementBar) {
+              announcementBar.style.animation = 'fadeOut 0.5s ease forwards';
+              setTimeout(() => {
+                  announcementBar.remove();
+              }, 500);
+          }
+      }
+    </script>
+</head>
+  <body x-data="{ showSidebar: false, showScrollTop: false }" class="min-h-screen font-sans antialiased bg-background text-foreground" :class="{ 'overflow-hidden': showSidebar }">
+    <div x-cloak x-show="showSidebar" class="fixed inset-0 z-50 overflow-hidden bg-background/80 backdrop-blur-sm md:hidden" @click.self="showSidebar = false"></div><div id="page" class="relative flex flex-col min-h-screen">
+    
+    
+    <div id="announcementBar" class="announcementbar">
+      <div class="announcementbar-content">
+        <div class="announcementbar-message"><span class="fa-solid fa-triangle-exclamation"></span> AutoGen v0.4 is a work in progress. Go <a href="https://microsoft.github.io/autogen/0.2/">here</a> to continue using v0.2 documentation.</div>
+        <button class="announcement-close-button" onclick="closeAnnouncement()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+    <a href="#content" class="absolute top-0 left-0 z-[100] block bg-background p-4 text-xl transition -translate-x-full opacity-0 focus:translate-x-0 focus:opacity-100">
+      Skip to content
+    </a><header
+  class="sticky top-0 z-40 w-full border-b shadow-sm border-border supports-backdrop-blur:bg-background/60 bg-background/95 backdrop-blur"><div class="container flex items-center h-14">
+    <div class="hidden mr-4 md:flex">
+      <a href="index.html" class="flex items-center mr-6">
+          <img height="24" width="24" class="mr-2 dark:invert" src="_static/logo.svg" alt="Logo" /><span class="hidden font-bold sm:inline-block text-clip whitespace-nowrap">AutoGen</span>
+      </a><nav class="flex items-center space-x-6 text-sm font-medium">
+        <a href="/index.html" class="transition-colors hover:text-foreground/80 text-foreground/60">Docs</a>
+      </nav></div><button
+      class="inline-flex items-center justify-center h-10 px-0 py-2 mr-2 text-base font-medium transition-colors rounded-md hover:text-accent-foreground hover:bg-transparent md:hidden"
+      type="button" @click="showSidebar = true">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 96 960 960" aria-hidden="true"
+        fill="currentColor">
+        <path
+          d="M152.587 825.087q-19.152 0-32.326-13.174t-13.174-32.326q0-19.152 13.174-32.326t32.326-13.174h440q19.152 0 32.326 13.174t13.174 32.326q0 19.152-13.174 32.326t-32.326 13.174h-440Zm0-203.587q-19.152 0-32.326-13.174T107.087 576q0-19.152 13.174-32.326t32.326-13.174h320q19.152 0 32.326 13.174T518.087 576q0 19.152-13.174 32.326T472.587 621.5h-320Zm0-203.587q-19.152 0-32.326-13.174t-13.174-32.326q0-19.152 13.174-32.326t32.326-13.174h440q19.152 0 32.326 13.174t13.174 32.326q0 19.152-13.174 32.326t-32.326 13.174h-440ZM708.913 576l112.174 112.174q12.674 12.674 12.674 31.826t-12.674 31.826Q808.413 764.5 789.261 764.5t-31.826-12.674l-144-144Q600 594.391 600 576t13.435-31.826l144-144q12.674-12.674 31.826-12.674t31.826 12.674q12.674 12.674 12.674 31.826t-12.674 31.826L708.913 576Z" />
+      </svg>
+      <span class="sr-only">Toggle navigation menu</span>
+    </button>
+    <div class="flex items-center justify-between flex-1 space-x-2 sm:space-x-4 md:justify-end">
+      <div class="flex-1 w-full md:w-auto md:flex-none"><form id="searchbox"
+      action="search.html"
+      method="get"
+      class="relative flex items-center group"
+      @keydown.k.window.meta="$refs.search.focus()">
+  <input x-ref="search"
+          name="q"
+          id="search-input"
+          type="search"
+          aria-label="Search the docs"
+          placeholder="Search ..."
+          class="inline-flex items-center font-medium transition-colors bg-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background border border-input hover:bg-accent focus:bg-accent hover:text-accent-foreground focus:text-accent-foreground hover:placeholder-accent-foreground py-2 px-4 relative h-9 w-full justify-start rounded-[0.5rem] text-sm text-muted-foreground sm:pr-12 md:w-40 lg:w-64" />
+  <kbd class="pointer-events-none absolute right-1.5 top-2 hidden h-5 select-none text-muted-foreground items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex group-hover:bg-accent group-hover:text-accent-foreground">
+    <span class="text-xs">⌘</span>
+    K
+  </kbd>
+</form>
+      </div>
+      <nav class="flex items-center space-x-1">
+        <a href="https://twitter.com/pyautogen" title="Visit Twitter" rel="noopener nofollow">
+          <div
+            class="inline-flex items-center justify-center px-0 text-sm font-medium transition-colors rounded-md disabled:opacity-50 disabled:pointer-events-none hover:bg-accent hover:text-accent-foreground h-9 w-9">
+            <svg height="22px" style="margin-top:-2px;display:inline" viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+          </div>
+        </a>
+        
+        <a href="https://github.com/microsoft/agnext" title="Visit GitHub" rel="noopener nofollow">
+          <div
+            class="inline-flex items-center justify-center px-0 text-sm font-medium transition-colors rounded-md disabled:opacity-50 disabled:pointer-events-none hover:bg-accent hover:text-accent-foreground h-9 w-9">
+            <svg height="22px" style="margin-top:-2px;display:inline" viewBox="0 0 45 44" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M22.477.927C10.485.927.76 10.65.76 22.647c0 9.596 6.223 17.736 14.853 20.608 1.087.2 1.483-.47 1.483-1.047 0-.516-.019-1.881-.03-3.693-6.04 1.312-7.315-2.912-7.315-2.912-.988-2.51-2.412-3.178-2.412-3.178-1.972-1.346.149-1.32.149-1.32 2.18.154 3.327 2.24 3.327 2.24 1.937 3.318 5.084 2.36 6.321 1.803.197-1.403.759-2.36 1.379-2.903-4.823-.548-9.894-2.412-9.894-10.734 0-2.37.847-4.31 2.236-5.828-.224-.55-.969-2.759.214-5.748 0 0 1.822-.584 5.972 2.226 1.732-.482 3.59-.722 5.437-.732 1.845.01 3.703.25 5.437.732 4.147-2.81 5.967-2.226 5.967-2.226 1.185 2.99.44 5.198.217 5.748 1.392 1.517 2.232 3.457 2.232 5.828 0 8.344-5.078 10.18-9.916 10.717.779.67 1.474 1.996 1.474 4.021 0 2.904-.027 5.247-.027 5.96 0 .58.392 1.256 1.493 1.044C37.981 40.375 44.2 32.24 44.2 22.647c0-11.996-9.726-21.72-21.722-21.72" fill="currentColor"/></svg>
+          </div>
+        </a>
+        
+        <a href="/packages" title="Visit Packages" rel="noopener nofollow">
+          <div
+            class="inline-flex items-center justify-center px-0 text-sm font-medium transition-colors rounded-md disabled:opacity-50 disabled:pointer-events-none hover:bg-accent hover:text-accent-foreground h-9 w-9">
+            <svg width="22" height="20" viewBox="0 0 118 105" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.6645 40.4581L34.2565 46.4975L51.0948 40.3685L34.5029 34.329L17.6645 40.4581ZM34.329 26.8229L50.922 32.8623L67.7593 26.7333L51.1674 20.6938L34.329 26.8229Z" fill="#F7F7F4" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M34.329 26.8229L50.922 32.8624V52.3631L34.329 46.3247V26.8229Z" fill="#EFEEEA" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M1 66.2116L17.592 72.2521L34.4303 66.1231L17.8373 60.0836L1 66.2116Z" fill="#F7F7F4" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M1 66.2117L17.592 72.2522V91.753L1 85.7146V66.2117Z" fill="#EFEEEA" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M1 38.4783L17.592 44.5189L34.4303 38.3898L17.8373 32.3503L1 38.4783Z" fill="#F7F7F4" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M17.5919 44.5189V64.0196L34.4303 57.8916V38.3898L17.5919 44.5189Z" fill="white" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M1 38.4783L17.592 44.5189V64.0196L1 57.9812V38.4783Z" fill="#EFEEEA" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M17.6634 72.2725L34.2564 78.3119V97.8137L17.6645 91.7743L17.6634 72.2725Z" fill="#EFEEEA" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M17.6634 52.5775L34.2564 58.617L51.0948 52.4879L34.5028 46.4495L17.6634 52.5775Z" fill="#F7F7F4" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M17.6634 52.5775L34.2564 58.617V78.1188L17.6645 72.0794L17.6634 52.5775Z" fill="#EFEEEA" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M100.917 66.1913V85.6932L117.754 79.5652V60.0634L100.917 66.1913Z" fill="white" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M84.251 72.2521V91.7529L101.089 85.6249V66.123L84.251 72.2521Z" fill="#FFD242" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M98.0377 77.0062C98.0378 77.4582 97.9542 77.9362 97.7917 78.413C97.6292 78.8897 97.391 79.3559 97.0907 79.7848C96.7904 80.2137 96.4338 80.5969 96.0414 80.9127C95.6489 81.2284 95.2283 81.4704 94.8036 81.6249C93.9463 81.9367 93.1241 81.8734 92.5178 81.4489C91.9116 81.0245 91.5708 80.2736 91.5705 79.3614C91.5703 78.9095 91.6539 78.4316 91.8163 77.9549C91.9787 77.4782 92.2168 77.0121 92.517 76.5832C92.8172 76.1543 93.1737 75.771 93.566 75.4552C93.9583 75.1394 94.3789 74.8973 94.8036 74.7428C95.2283 74.5882 95.6488 74.5241 96.0412 74.5542C96.4336 74.5844 96.7901 74.7081 97.0904 74.9184C97.3908 75.1287 97.629 75.4214 97.7915 75.7798C97.9541 76.1382 98.0377 76.5543 98.0377 77.0062Z" fill="white"/><path d="M67.5865 78.3119V97.8137L84.4249 91.6847V72.1829L67.5865 78.3119Z" fill="#FFD242" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M50.922 84.3717V103.873L67.7593 97.7444V78.2437L50.922 84.3717Z" fill="white" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M34.329 78.3322L50.922 84.3716V103.873L34.329 97.834V78.3322Z" fill="#EFEEEA" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M100.917 46.4975V65.9983L117.754 59.8703V40.3685L100.917 46.4975Z" fill="#FFD242" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M84.3235 20.7632L100.917 26.8026L117.754 20.6736L101.162 14.6341L84.3235 20.7632Z" fill="#FFC91D" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M100.917 26.8026V46.3034L117.754 40.1754V20.6736L100.917 26.8026ZM84.251 52.5572V72.058L101.089 65.93V46.4282L84.251 52.5572Z" fill="#FFD242" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M84.251 32.8624V52.3631L101.089 46.2351V26.7333L84.251 32.8624Z" fill="#3775A9" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M67.6591 7.12799L84.251 13.1674L101.089 7.03839L84.4974 1L67.6591 7.12799Z" fill="#2F6491" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M84.251 13.1664V32.6682L101.089 26.5402V7.03839L84.251 13.1664Z" fill="#3775A9" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M67.5865 58.617V78.1188L84.4249 71.9898V52.4879L67.5865 58.617Z" fill="#FFD242" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M67.5865 38.9221V58.4239L84.4249 52.2948V32.793L67.5865 38.9221ZM50.922 64.6767V84.1785L67.7593 78.0495V58.5487L50.922 64.6767Z" fill="#3775A9" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M34.329 58.6383L50.922 64.6767V84.1786L34.329 78.1391V58.6383ZM34.329 38.9424L50.922 44.9818L67.7593 38.8538L51.1674 32.8144L34.329 38.9424Z" fill="#2F6491" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M50.922 44.9818V64.4836L67.7593 58.3546V38.8538L50.922 44.9818Z" fill="#3775A9" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M34.329 38.9423L50.922 44.9818V64.4836L34.329 58.4442V38.9423ZM50.9946 13.1877L67.5865 19.2272L84.4249 13.0981L67.8319 7.05972L50.9946 13.1877Z" fill="#2F6491" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M67.5865 19.2272V38.729L84.4249 32.5999V13.0981L67.5865 19.2272Z" fill="#3775A9" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M50.9946 13.1877L67.5865 19.2272V38.729L50.9946 32.6895V13.1877Z" fill="#2F6491" stroke="#CCCCCC" stroke-width="0.378666" stroke-linejoin="bevel"/><path d="M77.1065 25.4906C77.1066 25.9426 77.023 26.4206 76.8605 26.8974C76.6981 27.3741 76.4598 27.8403 76.1595 28.2692C75.8592 28.6981 75.5026 29.0813 75.1102 29.3971C74.7177 29.7128 74.2971 29.9548 73.8724 30.1093C73.4477 30.2639 73.0271 30.3279 72.6347 30.2978C72.2424 30.2677 71.8858 30.1439 71.5855 29.9336C71.2852 29.7233 71.0469 29.4306 70.8844 29.0722C70.7219 28.7138 70.6382 28.2967 70.6382 27.8448C70.6381 27.3928 70.7217 26.9148 70.8842 26.438C71.0467 25.9613 71.2849 25.4951 71.5853 25.0662C71.8856 24.6373 72.2422 24.254 72.6346 23.9383C73.027 23.6226 73.4476 23.3806 73.8724 23.2261C74.2971 23.0715 74.7176 23.0074 75.11 23.0376C75.5024 23.0677 75.8589 23.1915 76.1593 23.4018C76.4596 23.612 76.6978 23.9047 76.8603 24.2632C77.0229 24.6216 77.1065 25.0387 77.1065 25.4906Z" fill="white"/></svg>
+          </div>
+        </a>
+        
+        <button @click="darkMode = darkMode === 'light' ? 'dark' : 'light'"
+          class="relative inline-flex items-center justify-center px-0 text-sm font-medium transition-colors rounded-md hover:bg-accent hover:text-accent-foreground h-9 w-9"
+          type="button"
+          aria-label="Color theme switcher">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 96 960 960" fill="currentColor"
+            class="absolute transition-all scale-100 rotate-0 dark:-rotate-90 dark:scale-0">
+            <path
+              d="M480 685q45.456 0 77.228-31.772Q589 621.456 589 576q0-45.456-31.772-77.228Q525.456 467 480 467q-45.456 0-77.228 31.772Q371 530.544 371 576q0 45.456 31.772 77.228Q434.544 685 480 685Zm0 91q-83 0-141.5-58.5T280 576q0-83 58.5-141.5T480 376q83 0 141.5 58.5T680 576q0 83-58.5 141.5T480 776ZM80 621.5q-19.152 0-32.326-13.174T34.5 576q0-19.152 13.174-32.326T80 530.5h80q19.152 0 32.326 13.174T205.5 576q0 19.152-13.174 32.326T160 621.5H80Zm720 0q-19.152 0-32.326-13.174T754.5 576q0-19.152 13.174-32.326T800 530.5h80q19.152 0 32.326 13.174T925.5 576q0 19.152-13.174 32.326T880 621.5h-80Zm-320-320q-19.152 0-32.326-13.174T434.5 256v-80q0-19.152 13.174-32.326T480 130.5q19.152 0 32.326 13.174T525.5 176v80q0 19.152-13.174 32.326T480 301.5Zm0 720q-19.152 0-32.326-13.17Q434.5 995.152 434.5 976v-80q0-19.152 13.174-32.326T480 850.5q19.152 0 32.326 13.174T525.5 896v80q0 19.152-13.174 32.33-13.174 13.17-32.326 13.17ZM222.174 382.065l-43-42Q165.5 327.391 166 308.239t13.174-33.065q13.435-13.674 32.587-13.674t32.065 13.674l42.239 43q12.674 13.435 12.555 31.706-.12 18.272-12.555 31.946-12.674 13.674-31.445 13.413-18.772-.261-32.446-13.174Zm494 494.761-42.239-43q-12.674-13.435-12.674-32.087t12.674-31.565Q686.609 756.5 705.38 757q18.772.5 32.446 13.174l43 41.761Q794.5 824.609 794 843.761t-13.174 33.065Q767.391 890.5 748.239 890.5t-32.065-13.674Zm-42-494.761Q660.5 369.391 661 350.62q.5-18.772 13.174-32.446l41.761-43Q728.609 261.5 747.761 262t33.065 13.174q13.674 13.435 13.674 32.587t-13.674 32.065l-43 42.239q-13.435 12.674-31.706 12.555-18.272-.12-31.946-12.555Zm-495 494.761Q165.5 863.391 165.5 844.239t13.674-32.065l43-42.239q13.435-12.674 32.087-12.674t31.565 12.674Q299.5 782.609 299 801.38q-.5 18.772-13.174 32.446l-41.761 43Q231.391 890.5 212.239 890t-33.065-13.174ZM480 576Z" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 96 960 960" fill="currentColor"
+            class="absolute transition-all scale-0 rotate-90 dark:rotate-0 dark:scale-100">
+            <path
+              d="M480 936q-151 0-255.5-104.5T120 576q0-138 90-239.5T440 218q25-3 39 18t-1 44q-17 26-25.5 55t-8.5 61q0 90 63 153t153 63q31 0 61.5-9t54.5-25q21-14 43-1.5t19 39.5q-14 138-117.5 229T480 936Zm0-80q88 0 158-48.5T740 681q-20 5-40 8t-40 3q-123 0-209.5-86.5T364 396q0-20 3-40t8-40q-78 32-126.5 102T200 576q0 116 82 198t198 82Zm-10-270Z" />
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </div>
+</header>
+
+    <div class="flex-1"><div class="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10"><aside id="left-sidebar"
+  class="fixed inset-y-0 left-0 md:top-14 z-50 md:z-30 bg-background md:bg-transparent transition-all duration-100 -translate-x-full md:translate-x-0 ml-0 p-6 md:p-0 md:-ml-2 md:h-[calc(100vh-3.5rem)] w-5/6 md:w-full shrink-0 overflow-y-auto border-r border-border md:sticky"
+  :aria-hidden="!showSidebar" :class="{ 'translate-x-0': showSidebar }">
+
+    <a href="index.html" class="!justify-start text-sm md:!hidden bg-background">
+        <img height="16" width="16" class="mr-2 dark:invert" src="_static/logo.svg" alt="Logo" /><span class="font-bold text-clip whitespace-nowrap">AutoGen</span>
+    </a>
+
+    <div class="relative overflow-hidden md:overflow-auto my-4 md:my-0 h-[calc(100vh-8rem)] md:h-auto">
+      <div class="overflow-y-auto h-full w-full relative pr-6"><nav class="flex md:hidden flex-col font-medium mt-4">
+  <a href="/index.html">Docs</a>
+</nav><nav class="table w-full min-w-full my-6 lg:my-8">
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="user-guide/agentchat-user-guide/index.html">AgentChat</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user-guide/agentchat-user-guide/installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user-guide/agentchat-user-guide/quickstart.html">Quickstart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user-guide/agentchat-user-guide/tutorial/index.html">Tutorial</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/agentchat-user-guide/tutorial/models.html">Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/agentchat-user-guide/tutorial/agents.html">Agents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/agentchat-user-guide/tutorial/teams.html">Teams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/agentchat-user-guide/tutorial/selector-group-chat.html">Selector Group Chat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/agentchat-user-guide/tutorial/swarm.html">Swarm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/agentchat-user-guide/tutorial/termination.html">Termination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/agentchat-user-guide/tutorial/termination.html#autogen-provides-several-built-in-termination-conditions">AutoGen provides several built-in termination conditions:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/agentchat-user-guide/tutorial/custom-agents.html">Custom Agents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user-guide/agentchat-user-guide/examples/index.html">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/agentchat-user-guide/examples/travel-planning.html">Travel Planning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/agentchat-user-guide/examples/company-research.html">Company Research</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/agentchat-user-guide/examples/literature-review.html">Literature Review</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="user-guide/core-user-guide/index.html">Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user-guide/core-user-guide/quickstart.html">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user-guide/core-user-guide/core-concepts/index.html">Core Concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/core-concepts/agent-and-multi-agent-application.html">Agent and Multi-Agent Applications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/core-concepts/architecture.html">Agent Runtime Environments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/core-concepts/api-layers.html">API Layers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/core-concepts/application-stack.html">Application Stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/core-concepts/agent-identity-and-lifecycle.html">Agent Identity and Lifecycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/core-concepts/topic-and-subscription.html">Topic and Subscription</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user-guide/core-user-guide/framework/index.html">Framework Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/framework/agent-and-agent-runtime.html">Agent and Agent Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/framework/message-and-communication.html">Message and Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/framework/model-clients.html">Model Clients</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/framework/tools.html">Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/framework/logging.html">Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/framework/telemetry.html">Open Telemetry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/framework/command-line-code-executors.html">Command Line Code Executors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/framework/distributed-agent-runtime.html">Distributed Agent Runtime</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/framework/distributed-agent-runtime.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user-guide/core-user-guide/design-patterns/index.html">Multi-Agent Design Patterns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/design-patterns/group-chat.html">Group Chat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/design-patterns/handoffs.html">Handoffs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/design-patterns/mixture-of-agents.html">Mixture of Agents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/design-patterns/multi-agent-debate.html">Multi-Agent Debate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/design-patterns/reflection.html">Reflection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user-guide/core-user-guide/cookbook/index.html">Cookbook</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/cookbook/azure-openai-with-aad-auth.html">Azure OpenAI with AAD Auth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/cookbook/termination-with-intervention.html">Termination using Intervention Handler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/cookbook/tool-use-with-intervention.html">User Approval for Tool Execution using Intervention Handler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/cookbook/extracting-results-with-an-agent.html">Extracting Results with an Agent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/cookbook/openai-assistant-agent.html">OpenAI Assistant Agent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/cookbook/langgraph-agent.html">Using LangGraph-Backed Agent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/cookbook/llamaindex-agent.html">Using LlamaIndex-Backed Agent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/cookbook/local-llms-ollama-litellm.html">Local LLMs with LiteLLM &amp; Ollama</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/cookbook/instrumenting.html">Instrumentating your code locally</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/cookbook/topic-subscription-scenarios.html">Topic and Subscription Example Scenarios</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user-guide/core-user-guide/cookbook/structured-output-agent.html">Structured output using GPT-4o models</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user-guide/core-user-guide/faqs.html">FAQs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="user-guide/extensions-user-guide/index.html">Extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user-guide/extensions-user-guide/azure-container-code-executor.html">ACA Dynamic Sessions Code Executor</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="packages/index.html">Packages</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="reference/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/python/autogen_agentchat/autogen_agentchat.html">autogen_agentchat</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference/python/autogen_agentchat/autogen_agentchat.agents.html">autogen_agentchat.agents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/python/autogen_agentchat/autogen_agentchat.base.html">autogen_agentchat.base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/python/autogen_agentchat/autogen_agentchat.logging.html">autogen_agentchat.logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/python/autogen_agentchat/autogen_agentchat.task.html">autogen_agentchat.task</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/python/autogen_agentchat/autogen_agentchat.teams.html">autogen_agentchat.teams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/python/autogen_agentchat/autogen_agentchat.messages.html">autogen_agentchat.messages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reference/python/autogen_core/autogen_core.html">autogen_core</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference/python/autogen_core/autogen_core.application.html">autogen_core.application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/python/autogen_core/autogen_core.base.html">autogen_core.base</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/python/autogen_core/autogen_core.components.html">autogen_core.components</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reference/python/autogen_ext/autogen_ext.html">autogen_ext</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference/python/autogen_ext/autogen_ext.agents.html">autogen_ext.agents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/python/autogen_ext/autogen_ext.code_executors.html">autogen_ext.code_executors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/python/autogen_ext/autogen_ext.models.html">autogen_ext.models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/python/autogen_ext/autogen_ext.tools.html">autogen_ext.tools</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</nav>
+      </div>
+    </div>
+    <button type="button" @click="showSidebar = false"
+      class="absolute md:hidden right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100">
+      <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 96 960 960" fill="currentColor"
+        stroke="none" class="h-4 w-4">
+        <path
+          d="M480 632 284 828q-11 11-28 11t-28-11q-11-11-11-28t11-28l196-196-196-196q-11-11-11-28t11-28q11-11 28-11t28 11l196 196 196-196q11-11 28-11t28 11q11 11 11 28t-11 28L536 576l196 196q11 11 11 28t-11 28q-11 11-28 11t-28-11L480 632Z" />
+      </svg>
+    </button>
+  </aside>
+        <main class="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
+<div class="w-full min-w-0 mx-auto">
+<nav aria-label="breadcrumbs"
+     class="flex items-center mb-4 space-x-1 text-sm text-muted-foreground">
+  <a class="overflow-hidden text-ellipsis whitespace-nowrap hover:text-foreground"
+     href="index.html">
+    <span class="hidden md:inline">AutoGen</span>
+    <svg xmlns="http://www.w3.org/2000/svg"
+         height="18"
+         width="18"
+         viewBox="0 96 960 960"
+         aria-label="Home"
+         fill="currentColor"
+         stroke="none"
+         class="md:hidden">
+      <path d="M240 856h120V616h240v240h120V496L480 316 240 496v360Zm-80 80V456l320-240 320 240v480H520V696h-80v240H160Zm320-350Z" />
+    </svg>
+  </a>
+  
+<div class="mr-1">/</div><span aria-current="page"
+        class="font-medium text-foreground overflow-hidden text-ellipsis whitespace-nowrap">Index</span>
+</nav>
+
+<div id="content" role="main">
+
+  <h1 id="index">Index</h1>
+  <h2 id="A">A</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#autogen_ext.code_executors.ACADynamicSessionsCodeExecutor">ACADynamicSessionsCodeExecutor (class in autogen_ext.code_executors)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.ChatCompletionClient.actual_usage">actual_usage() (autogen_core.components.models.ChatCompletionClient method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.ReplayChatCompletionClient.actual_usage">(autogen_ext.models.ReplayChatCompletionClient method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.CancellationToken.add_callback">add_callback() (autogen_core.base.CancellationToken method)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.model_context.html#autogen_core.components.model_context.BufferedChatCompletionContext.add_message">add_message() (autogen_core.components.model_context.BufferedChatCompletionContext method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.model_context.html#autogen_core.components.model_context.ChatCompletionContext.add_message">(autogen_core.components.model_context.ChatCompletionContext method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.model_context.html#autogen_core.components.model_context.HeadAndTailChatCompletionContext.add_message">(autogen_core.components.model_context.HeadAndTailChatCompletionContext method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.SingleThreadedAgentRuntime.add_message_serializer">add_message_serializer() (autogen_core.application.SingleThreadedAgentRuntime method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.WorkerAgentRuntime.add_message_serializer">(autogen_core.application.WorkerAgentRuntime method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentRuntime.add_message_serializer">(autogen_core.base.AgentRuntime method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.SingleThreadedAgentRuntime.add_subscription">add_subscription() (autogen_core.application.SingleThreadedAgentRuntime method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.WorkerAgentRuntime.add_subscription">(autogen_core.application.WorkerAgentRuntime method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentRuntime.add_subscription">(autogen_core.base.AgentRuntime method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.Agent">Agent (class in autogen_core.base)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.MessageHandlerContext.agent_id">agent_id() (autogen_core.base.MessageHandlerContext class method)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.SingleThreadedAgentRuntime.agent_load_state">agent_load_state() (autogen_core.application.SingleThreadedAgentRuntime method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.WorkerAgentRuntime.agent_load_state">(autogen_core.application.WorkerAgentRuntime method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentRuntime.agent_load_state">(autogen_core.base.AgentRuntime method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.SingleThreadedAgentRuntime.agent_metadata">agent_metadata() (autogen_core.application.SingleThreadedAgentRuntime method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.WorkerAgentRuntime.agent_metadata">(autogen_core.application.WorkerAgentRuntime method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentRuntime.agent_metadata">(autogen_core.base.AgentRuntime method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.SingleThreadedAgentRuntime.agent_save_state">agent_save_state() (autogen_core.application.SingleThreadedAgentRuntime method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.WorkerAgentRuntime.agent_save_state">(autogen_core.application.WorkerAgentRuntime method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentRuntime.agent_save_state">(autogen_core.base.AgentRuntime method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.TypePrefixSubscription.agent_type">agent_type (autogen_core.components.TypePrefixSubscription property)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.TypeSubscription.agent_type">(autogen_core.components.TypeSubscription property)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.SubscriptionInstantiationContext.agent_type">agent_type() (autogen_core.base.SubscriptionInstantiationContext class method)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentId">AgentId (class in autogen_core.base)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentInstantiationContext">AgentInstantiationContext (class in autogen_core.base)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.AgentMessage">AgentMessage (in module autogen_agentchat.messages)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentMetadata">AgentMetadata (class in autogen_core.base)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentProxy">AgentProxy (class in autogen_core.base)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentRuntime">AgentRuntime (class in autogen_core.base)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentType">AgentType (class in autogen_core.base)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.Alias.alias">alias (autogen_core.components.code_executor.Alias attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.Alias">Alias (class in autogen_core.components.code_executor)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.AzureOpenAIClientConfiguration.api_key">api_key (autogen_ext.models.AzureOpenAIClientConfiguration attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.OpenAIClientConfiguration.api_key">(autogen_ext.models.OpenAIClientConfiguration attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.AzureOpenAIClientConfiguration.api_version">api_version (autogen_ext.models.AzureOpenAIClientConfiguration attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.BaseTool.args_type">args_type() (autogen_core.components.tools.BaseTool method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.Tool.args_type">(autogen_core.components.tools.Tool method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.FunctionCall.arguments">arguments (autogen_core.components.FunctionCall attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.AssistantAgent">AssistantAgent (class in autogen_agentchat.agents)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.AssistantMessage">AssistantMessage (class in autogen_core.components.models)</a>
+</li>
+      <li>
+    autogen_agentchat
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.html#module-autogen_agentchat">module</a>
+</li>
+      </ul></li>
+      <li>
+    autogen_agentchat.agents
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#module-autogen_agentchat.agents">module</a>
+</li>
+      </ul></li>
+      <li>
+    autogen_agentchat.base
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.base.html#module-autogen_agentchat.base">module</a>
+</li>
+      </ul></li>
+      <li>
+    autogen_agentchat.logging
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.logging.html#module-autogen_agentchat.logging">module</a>
+</li>
+      </ul></li>
+      <li>
+    autogen_agentchat.messages
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#module-autogen_agentchat.messages">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li>
+    autogen_agentchat.task
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#module-autogen_agentchat.task">module</a>
+</li>
+      </ul></li>
+      <li>
+    autogen_agentchat.teams
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.teams.html#module-autogen_agentchat.teams">module</a>
+</li>
+      </ul></li>
+      <li>
+    autogen_core
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.html#module-autogen_core">module</a>
+</li>
+      </ul></li>
+      <li>
+    autogen_core.application
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.application.html#module-autogen_core.application">module</a>
+</li>
+      </ul></li>
+      <li>
+    autogen_core.application.logging
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.application.logging.html#module-autogen_core.application.logging">module</a>
+</li>
+      </ul></li>
+      <li>
+    autogen_core.application.logging.events
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.application.logging.events.html#module-autogen_core.application.logging.events">module</a>
+</li>
+      </ul></li>
+      <li>
+    autogen_core.application.telemetry
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.application.telemetry.html#module-autogen_core.application.telemetry">module</a>
+</li>
+      </ul></li>
+      <li>
+    autogen_core.base
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#module-autogen_core.base">module</a>
+</li>
+      </ul></li>
+      <li>
+    autogen_core.base.exceptions
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.base.exceptions.html#module-autogen_core.base.exceptions">module</a>
+</li>
+      </ul></li>
+      <li>
+    autogen_core.base.intervention
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.base.intervention.html#module-autogen_core.base.intervention">module</a>
+</li>
+      </ul></li>
+      <li>
+    autogen_core.components
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.html#module-autogen_core.components">module</a>
+</li>
+      </ul></li>
+      <li>
+    autogen_core.components.code_executor
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#module-autogen_core.components.code_executor">module</a>
+</li>
+      </ul></li>
+      <li>
+    autogen_core.components.model_context
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.model_context.html#module-autogen_core.components.model_context">module</a>
+</li>
+      </ul></li>
+      <li>
+    autogen_core.components.models
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.models.html#module-autogen_core.components.models">module</a>
+</li>
+      </ul></li>
+      <li>
+    autogen_core.components.tool_agent
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.tool_agent.html#module-autogen_core.components.tool_agent">module</a>
+</li>
+      </ul></li>
+      <li>
+    autogen_core.components.tools
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#module-autogen_core.components.tools">module</a>
+</li>
+      </ul></li>
+      <li>
+    autogen_ext
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.html#module-autogen_ext">module</a>
+</li>
+      </ul></li>
+      <li>
+    autogen_ext.agents
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.agents.html#module-autogen_ext.agents">module</a>
+</li>
+      </ul></li>
+      <li>
+    autogen_ext.agents.video_surfer
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.agents.video_surfer.html#module-autogen_ext.agents.video_surfer">module</a>
+</li>
+      </ul></li>
+      <li>
+    autogen_ext.agents.video_surfer.tools
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.agents.video_surfer.tools.html#module-autogen_ext.agents.video_surfer.tools">module</a>
+</li>
+      </ul></li>
+      <li>
+    autogen_ext.agents.web_surfer
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.agents.web_surfer.html#module-autogen_ext.agents.web_surfer">module</a>
+</li>
+      </ul></li>
+      <li>
+    autogen_ext.code_executors
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#module-autogen_ext.code_executors">module</a>
+</li>
+      </ul></li>
+      <li>
+    autogen_ext.models
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.models.html#module-autogen_ext.models">module</a>
+</li>
+      </ul></li>
+      <li>
+    autogen_ext.tools
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.tools.html#module-autogen_ext.tools">module</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.AzureOpenAIClientConfiguration.azure_ad_token">azure_ad_token (autogen_ext.models.AzureOpenAIClientConfiguration attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.AzureOpenAIClientConfiguration.azure_ad_token_provider">azure_ad_token_provider (autogen_ext.models.AzureOpenAIClientConfiguration attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.AzureOpenAIClientConfiguration.azure_deployment">azure_deployment (autogen_ext.models.AzureOpenAIClientConfiguration attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.AzureOpenAIClientConfiguration.azure_endpoint">azure_endpoint (autogen_ext.models.AzureOpenAIClientConfiguration attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.AzureOpenAIChatCompletionClient">AzureOpenAIChatCompletionClient (class in autogen_ext.models)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.AzureOpenAIClientConfiguration">AzureOpenAIClientConfiguration (class in autogen_ext.models)</a>
+</li>
+  </ul></td>
+  </tr>
+      </table>
+  
+  <h2 id="B">B</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.OpenAIClientConfiguration.base_url">base_url (autogen_ext.models.OpenAIClientConfiguration attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.BaseAgent">BaseAgent (class in autogen_core.base)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.BaseChatAgent">BaseChatAgent (class in autogen_agentchat.agents)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.teams.html#autogen_agentchat.teams.BaseGroupChat">BaseGroupChat (class in autogen_agentchat.teams)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.BaseMessage">BaseMessage (class in autogen_agentchat.messages)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.BaseTool">BaseTool (class in autogen_core.components.tools)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.BaseToolWithState">BaseToolWithState (class in autogen_core.components.tools)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#autogen_ext.code_executors.DockerCommandLineCodeExecutor.bind_dir">bind_dir (autogen_ext.code_executors.DockerCommandLineCodeExecutor property)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.model_context.html#autogen_core.components.model_context.BufferedChatCompletionContext">BufferedChatCompletionContext (class in autogen_core.components.model_context)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.telemetry.html#autogen_core.application.telemetry.MessageRuntimeTracingConfig.build_attributes">build_attributes() (autogen_core.application.telemetry.MessageRuntimeTracingConfig method)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.ChatCompletionTokenLogprob.bytes">bytes (autogen_core.components.models.ChatCompletionTokenLogprob attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.TopLogprob.bytes">(autogen_core.components.models.TopLogprob attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  </tr>
+      </table>
+  
+  <h2 id="C">C</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.CreateResult.cached">cached (autogen_core.components.models.CreateResult attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.FunctionExecutionResult.call_id">call_id (autogen_core.components.models.FunctionExecutionResult attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.tool_agent.html#autogen_core.components.tool_agent.ToolException.call_id">(autogen_core.components.tool_agent.ToolException attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.CancellationToken.cancel">cancel() (autogen_core.base.CancellationToken method)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.MessageContext.cancellation_token">cancellation_token (autogen_core.base.MessageContext attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.CancellationToken">CancellationToken (class in autogen_core.base)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.exceptions.html#autogen_core.base.exceptions.CantHandleException">CantHandleException</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.ChatCompletionClient.capabilities">capabilities (autogen_core.components.models.ChatCompletionClient property)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.ReplayChatCompletionClient.capabilities">(autogen_ext.models.ReplayChatCompletionClient property)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.base.html#autogen_agentchat.base.Response.chat_message">chat_message (autogen_agentchat.base.Response attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.base.html#autogen_agentchat.base.ChatAgent">ChatAgent (class in autogen_agentchat.base)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.ChatCompletionClient">ChatCompletionClient (class in autogen_core.components.models)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.model_context.html#autogen_core.components.model_context.ChatCompletionContext">ChatCompletionContext (class in autogen_core.components.model_context)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.ChatCompletionTokenLogprob">ChatCompletionTokenLogprob (class in autogen_core.components.models)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.ChatMessage">ChatMessage (in module autogen_agentchat.messages)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.model_context.html#autogen_core.components.model_context.BufferedChatCompletionContext.clear">clear() (autogen_core.components.model_context.BufferedChatCompletionContext method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.model_context.html#autogen_core.components.model_context.ChatCompletionContext.clear">(autogen_core.components.model_context.ChatCompletionContext method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.model_context.html#autogen_core.components.model_context.HeadAndTailChatCompletionContext.clear">(autogen_core.components.model_context.HeadAndTailChatCompletionContext method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.ClosureAgent">ClosureAgent (class in autogen_core.components)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.ClosureContext">ClosureContext (class in autogen_core.components)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.CodeBlock.code">code (autogen_core.components.code_executor.CodeBlock attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.CodeExecutionInput.code">(autogen_core.components.tools.CodeExecutionInput attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.CommandLineCodeResult.code_file">code_file (autogen_core.components.code_executor.CommandLineCodeResult attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.CodeBlock">CodeBlock (class in autogen_core.components.code_executor)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.CodeExecutionInput">CodeExecutionInput (class in autogen_core.components.tools)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.CodeExecutionResult">CodeExecutionResult (class in autogen_core.components.tools)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.CodeExecutor">CodeExecutor (class in autogen_core.components.code_executor)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.CodeExecutorAgent">CodeExecutorAgent (class in autogen_agentchat.agents)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.CodeResult">CodeResult (class in autogen_core.components.code_executor)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.CodingAssistantAgent">CodingAssistantAgent (class in autogen_agentchat.agents)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.CommandLineCodeResult">CommandLineCodeResult (class in autogen_core.components.code_executor)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.FunctionWithRequirementsStr.compiled_func">compiled_func (autogen_core.components.code_executor.FunctionWithRequirementsStr attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.logging.events.html#autogen_core.application.logging.events.LLMCallEvent.completion_tokens">completion_tokens (autogen_core.application.logging.events.LLMCallEvent property)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.application.logging.events.html#autogen_core.application.logging.events.MessageEvent.completion_tokens">(autogen_core.application.logging.events.MessageEvent property)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.application.logging.html#autogen_core.application.logging.LLMUsageTracker.completion_tokens">(autogen_core.application.logging.LLMUsageTracker property)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.RequestUsage.completion_tokens">(autogen_core.components.models.RequestUsage attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#autogen_agentchat.task.Console">Console() (in module autogen_agentchat.task)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.logging.html#autogen_agentchat.logging.ConsoleLogHandler">ConsoleLogHandler (class in autogen_agentchat.logging)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.HandoffMessage.content">content (autogen_agentchat.messages.HandoffMessage attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.MultiModalMessage.content">(autogen_agentchat.messages.MultiModalMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.StopMessage.content">(autogen_agentchat.messages.StopMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.TextMessage.content">(autogen_agentchat.messages.TextMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.ToolCallMessage.content">(autogen_agentchat.messages.ToolCallMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.ToolCallResultMessage.content">(autogen_agentchat.messages.ToolCallResultMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.AssistantMessage.content">(autogen_core.components.models.AssistantMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.CreateResult.content">(autogen_core.components.models.CreateResult attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.FunctionExecutionResult.content">(autogen_core.components.models.FunctionExecutionResult attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.FunctionExecutionResultMessage.content">(autogen_core.components.models.FunctionExecutionResultMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.SystemMessage.content">(autogen_core.components.models.SystemMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.UserMessage.content">(autogen_core.components.models.UserMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.tool_agent.html#autogen_core.components.tool_agent.ToolException.content">(autogen_core.components.tool_agent.ToolException attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.ChatCompletionClient.count_tokens">count_tokens() (autogen_core.components.models.ChatCompletionClient method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.ReplayChatCompletionClient.count_tokens">(autogen_ext.models.ReplayChatCompletionClient method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.ChatCompletionClient.create">create() (autogen_core.components.models.ChatCompletionClient method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.ReplayChatCompletionClient.create">(autogen_ext.models.ReplayChatCompletionClient method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.ChatCompletionClient.create_stream">create_stream() (autogen_core.components.models.ChatCompletionClient method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.ReplayChatCompletionClient.create_stream">(autogen_ext.models.ReplayChatCompletionClient method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.CreateResult">CreateResult (class in autogen_core.components.models)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentInstantiationContext.current_agent_id">current_agent_id() (autogen_core.base.AgentInstantiationContext class method)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentInstantiationContext.current_runtime">current_runtime() (autogen_core.base.AgentInstantiationContext class method)</a>
+</li>
+  </ul></td>
+  </tr>
+      </table>
+  
+  <h2 id="D">D</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.MessageSerializer.data_content_type">data_content_type (autogen_core.base.MessageSerializer property)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.UnknownPayload.data_content_type">(autogen_core.base.UnknownPayload attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.Image.data_uri">data_uri (autogen_core.components.Image property)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.agents.video_surfer.html#autogen_ext.agents.video_surfer.VideoSurferAgent.DEFAULT_DESCRIPTION">DEFAULT_DESCRIPTION (autogen_ext.agents.video_surfer.VideoSurferAgent attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.agents.web_surfer.html#autogen_ext.agents.web_surfer.MultimodalWebSurfer.DEFAULT_DESCRIPTION">(autogen_ext.agents.web_surfer.MultimodalWebSurfer attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.agents.web_surfer.html#autogen_ext.agents.web_surfer.MultimodalWebSurfer.DEFAULT_START_PAGE">DEFAULT_START_PAGE (autogen_ext.agents.web_surfer.MultimodalWebSurfer attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.default_subscription">default_subscription() (in module autogen_core.components)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.agents.video_surfer.html#autogen_ext.agents.video_surfer.VideoSurferAgent.DEFAULT_SYSTEM_MESSAGE">DEFAULT_SYSTEM_MESSAGE (autogen_ext.agents.video_surfer.VideoSurferAgent attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.intervention.html#autogen_core.base.intervention.DefaultInterventionHandler">DefaultInterventionHandler (class in autogen_core.base.intervention)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.DefaultSubscription">DefaultSubscription (class in autogen_core.components)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.DefaultTopicId">DefaultTopicId (class in autogen_core.components)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.agents.html#autogen_ext.agents.OpenAIAssistantAgent.delete_assistant">delete_assistant() (autogen_ext.agents.OpenAIAssistantAgent method)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.agents.html#autogen_ext.agents.OpenAIAssistantAgent.delete_uploaded_files">delete_uploaded_files() (autogen_ext.agents.OpenAIAssistantAgent method)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.agents.html#autogen_ext.agents.OpenAIAssistantAgent.delete_vector_store">delete_vector_store() (autogen_ext.agents.OpenAIAssistantAgent method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_core/autogen_core.application.logging.events.html#autogen_core.application.logging.events.DeliveryStage.DELIVER">DELIVER (autogen_core.application.logging.events.DeliveryStage attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.logging.events.html#autogen_core.application.logging.events.DeliveryStage">DeliveryStage (class in autogen_core.application.logging.events)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.BaseChatAgent.description">description (autogen_agentchat.agents.BaseChatAgent property)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.Handoff.description">(autogen_agentchat.agents.Handoff attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.base.html#autogen_agentchat.base.ChatAgent.description">(autogen_agentchat.base.ChatAgent property)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentMetadata.description">(autogen_core.base.AgentMetadata attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.BaseTool.description">(autogen_core.components.tools.BaseTool property)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.Tool.description">(autogen_core.components.tools.Tool property)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.ToolSchema.description">(autogen_core.components.tools.ToolSchema attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.MessageSerializer.deserialize">deserialize() (autogen_core.base.MessageSerializer method)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.logging.events.html#autogen_core.application.logging.events.MessageKind.DIRECT">DIRECT (autogen_core.application.logging.events.MessageKind attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#autogen_ext.code_executors.DockerCommandLineCodeExecutor">DockerCommandLineCodeExecutor (class in autogen_ext.code_executors)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#autogen_ext.code_executors.ACADynamicSessionsCodeExecutor.download_files">download_files() (autogen_ext.code_executors.ACADynamicSessionsCodeExecutor method)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.intervention.html#autogen_core.base.intervention.DropMessage">DropMessage (class in autogen_core.base.intervention)</a>
+</li>
+  </ul></td>
+  </tr>
+      </table>
+  
+  <h2 id="E">E</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.logging.html#autogen_agentchat.logging.ConsoleLogHandler.emit">emit() (autogen_agentchat.logging.ConsoleLogHandler method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.logging.html#autogen_agentchat.logging.FileLogHandler.emit">(autogen_agentchat.logging.FileLogHandler method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.application.logging.html#autogen_core.application.logging.LLMUsageTracker.emit">(autogen_core.application.logging.LLMUsageTracker method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.telemetry.html#autogen_core.application.telemetry.EnvelopeMetadata">EnvelopeMetadata (class in autogen_core.application.telemetry)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.event">event() (in module autogen_core.components)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.logging.html#autogen_core.application.logging.EVENT_LOGGER_NAME">EVENT_LOGGER_NAME (in module autogen_core.application.logging)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.CodeExecutor.execute_code_blocks">execute_code_blocks() (autogen_core.components.code_executor.CodeExecutor method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.LocalCommandLineCodeExecutor.execute_code_blocks">(autogen_core.components.code_executor.LocalCommandLineCodeExecutor method)</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#autogen_ext.code_executors.ACADynamicSessionsCodeExecutor.execute_code_blocks">(autogen_ext.code_executors.ACADynamicSessionsCodeExecutor method)</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#autogen_ext.code_executors.DockerCommandLineCodeExecutor.execute_code_blocks">(autogen_ext.code_executors.DockerCommandLineCodeExecutor method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.CodeResult.exit_code">exit_code (autogen_core.components.code_executor.CodeResult attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#autogen_agentchat.task.ExternalTermination">ExternalTermination (class in autogen_agentchat.task)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.agents.video_surfer.tools.html#autogen_ext.agents.video_surfer.tools.extract_audio">extract_audio() (in module autogen_ext.agents.video_surfer.tools)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.extract_markdown_code_blocks">extract_markdown_code_blocks() (in module autogen_core.components.code_executor)</a>
+</li>
+  </ul></td>
+  </tr>
+      </table>
+  
+  <h2 id="F">F</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.logging.html#autogen_agentchat.logging.FileLogHandler">FileLogHandler (class in autogen_agentchat.logging)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.CreateResult.finish_reason">finish_reason (autogen_core.components.models.CreateResult attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.LocalCommandLineCodeExecutor.format_functions_for_prompt">format_functions_for_prompt() (autogen_core.components.code_executor.LocalCommandLineCodeExecutor method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#autogen_ext.code_executors.ACADynamicSessionsCodeExecutor.format_functions_for_prompt">(autogen_ext.code_executors.ACADynamicSessionsCodeExecutor method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.AzureOpenAIClientConfiguration.frequency_penalty">frequency_penalty (autogen_ext.models.AzureOpenAIClientConfiguration attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.OpenAIClientConfiguration.frequency_penalty">(autogen_ext.models.OpenAIClientConfiguration attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.Image.from_base64">from_base64() (autogen_core.components.Image class method)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.FunctionWithRequirements.from_callable">from_callable() (autogen_core.components.code_executor.FunctionWithRequirements class method)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.Image.from_file">from_file() (autogen_core.components.Image class method)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.Image.from_pil">from_pil() (autogen_core.components.Image class method)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentId.from_str">from_str() (autogen_core.base.AgentId class method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.TopicId.from_str">(autogen_core.base.TopicId class method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.FunctionWithRequirements.from_str">(autogen_core.components.code_executor.FunctionWithRequirements static method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.Image.from_uri">from_uri() (autogen_core.components.Image class method)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.Image.from_url">from_url() (autogen_core.components.Image class method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.FunctionWithRequirements.func">func (autogen_core.components.code_executor.FunctionWithRequirements attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.FunctionWithRequirementsStr.func">(autogen_core.components.code_executor.FunctionWithRequirementsStr attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.ModelCapabilities.function_calling">function_calling (autogen_core.components.models.ModelCapabilities attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.LocalCommandLineCodeExecutor.FUNCTION_PROMPT_TEMPLATE">FUNCTION_PROMPT_TEMPLATE (autogen_core.components.code_executor.LocalCommandLineCodeExecutor attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#autogen_ext.code_executors.ACADynamicSessionsCodeExecutor.FUNCTION_PROMPT_TEMPLATE">(autogen_ext.code_executors.ACADynamicSessionsCodeExecutor attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#autogen_ext.code_executors.DockerCommandLineCodeExecutor.FUNCTION_PROMPT_TEMPLATE">(autogen_ext.code_executors.DockerCommandLineCodeExecutor attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.FunctionCall">FunctionCall (class in autogen_core.components)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.FunctionExecutionResult">FunctionExecutionResult (class in autogen_core.components.models)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.FunctionExecutionResultMessage">FunctionExecutionResultMessage (class in autogen_core.components.models)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.LocalCommandLineCodeExecutor.functions">functions (autogen_core.components.code_executor.LocalCommandLineCodeExecutor property)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#autogen_ext.code_executors.ACADynamicSessionsCodeExecutor.functions">(autogen_ext.code_executors.ACADynamicSessionsCodeExecutor property)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.LocalCommandLineCodeExecutor.functions_module">functions_module (autogen_core.components.code_executor.LocalCommandLineCodeExecutor property)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#autogen_ext.code_executors.ACADynamicSessionsCodeExecutor.functions_module">(autogen_ext.code_executors.ACADynamicSessionsCodeExecutor property)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.FunctionTool">FunctionTool (class in autogen_core.components.tools)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.FunctionWithRequirements">FunctionWithRequirements (class in autogen_core.components.code_executor)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.FunctionWithRequirementsStr">FunctionWithRequirementsStr (class in autogen_core.components.code_executor)</a>
+</li>
+  </ul></td>
+  </tr>
+      </table>
+  
+  <h2 id="G">G</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.SingleThreadedAgentRuntime.get">get() (autogen_core.application.SingleThreadedAgentRuntime method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.WorkerAgentRuntime.get">(autogen_core.application.WorkerAgentRuntime method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentRuntime.get">(autogen_core.base.AgentRuntime method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#autogen_ext.code_executors.ACADynamicSessionsCodeExecutor.get_available_packages">get_available_packages() (autogen_ext.code_executors.ACADynamicSessionsCodeExecutor method)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#autogen_ext.code_executors.ACADynamicSessionsCodeExecutor.get_file_list">get_file_list() (autogen_ext.code_executors.ACADynamicSessionsCodeExecutor method)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.get_file_name_from_content">get_file_name_from_content() (in module autogen_core.components.code_executor)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.model_context.html#autogen_core.components.model_context.BufferedChatCompletionContext.get_messages">get_messages() (autogen_core.components.model_context.BufferedChatCompletionContext method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.model_context.html#autogen_core.components.model_context.ChatCompletionContext.get_messages">(autogen_core.components.model_context.ChatCompletionContext method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.model_context.html#autogen_core.components.model_context.HeadAndTailChatCompletionContext.get_messages">(autogen_core.components.model_context.HeadAndTailChatCompletionContext method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.get_required_packages">get_required_packages() (in module autogen_core.components.code_executor)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.agents.video_surfer.tools.html#autogen_ext.agents.video_surfer.tools.get_screenshot_at">get_screenshot_at() (in module autogen_ext.agents.video_surfer.tools)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.telemetry.html#autogen_core.application.telemetry.MessageRuntimeTracingConfig.get_span_kind">get_span_kind() (autogen_core.application.telemetry.MessageRuntimeTracingConfig method)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.telemetry.html#autogen_core.application.telemetry.MessageRuntimeTracingConfig.get_span_name">get_span_name() (autogen_core.application.telemetry.MessageRuntimeTracingConfig method)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.telemetry.html#autogen_core.application.telemetry.get_telemetry_envelope_metadata">get_telemetry_envelope_metadata() (in module autogen_core.application.telemetry)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.telemetry.html#autogen_core.application.telemetry.get_telemetry_grpc_metadata">get_telemetry_grpc_metadata() (in module autogen_core.application.telemetry)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#autogen_ext.code_executors.TokenProvider.get_token">get_token() (autogen_ext.code_executors.TokenProvider method)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.agents.video_surfer.tools.html#autogen_ext.agents.video_surfer.tools.get_video_length">get_video_length() (in module autogen_ext.agents.video_surfer.tools)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.FunctionWithRequirements.global_imports">global_imports (autogen_core.components.code_executor.FunctionWithRequirements attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.FunctionWithRequirementsStr.global_imports">(autogen_core.components.code_executor.FunctionWithRequirementsStr attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  </tr>
+      </table>
+  
+  <h2 id="H">H</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_core/autogen_core.components.tool_agent.html#autogen_core.components.tool_agent.ToolAgent.handle_function_call">handle_function_call() (autogen_core.components.tool_agent.ToolAgent method)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.agents.html#autogen_ext.agents.OpenAIAssistantAgent.handle_text_message">handle_text_message() (autogen_ext.agents.OpenAIAssistantAgent method)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.Handoff">Handoff (class in autogen_agentchat.agents)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.Handoff.handoff_tool">handoff_tool (autogen_agentchat.agents.Handoff property)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.HandoffMessage">HandoffMessage (class in autogen_agentchat.messages)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#autogen_agentchat.task.HandoffTermination">HandoffTermination (class in autogen_agentchat.task)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.model_context.html#autogen_core.components.model_context.HeadAndTailChatCompletionContext">HeadAndTailChatCompletionContext (class in autogen_core.components.model_context)</a>
+</li>
+  </ul></td>
+  </tr>
+      </table>
+  
+  <h2 id="I">I</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.Agent.id">id (autogen_core.base.Agent property)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentProxy.id">(autogen_core.base.AgentProxy property)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.BaseAgent.id">(autogen_core.base.BaseAgent property)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.Subscription.id">(autogen_core.base.Subscription property)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.ClosureAgent.id">(autogen_core.components.ClosureAgent property)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.ClosureContext.id">(autogen_core.components.ClosureContext property)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.FunctionCall.id">(autogen_core.components.FunctionCall attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.TypePrefixSubscription.id">(autogen_core.components.TypePrefixSubscription property)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.TypeSubscription.id">(autogen_core.components.TypeSubscription property)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.SingleThreadedAgentRuntime.idle">idle (autogen_core.application.SingleThreadedAgentRuntime property)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.Image">Image (class in autogen_core.components)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.ImportFromModule">ImportFromModule (class in autogen_core.components.code_executor)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.ImportFromModule.imports">imports (autogen_core.components.code_executor.ImportFromModule attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.base.html#autogen_agentchat.base.Response.inner_messages">inner_messages (autogen_agentchat.base.Response attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.intervention.html#autogen_core.base.intervention.InterventionHandler">InterventionHandler (class in autogen_core.base.intervention)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.tool_agent.html#autogen_core.components.tool_agent.InvalidToolArgumentsException">InvalidToolArgumentsException</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.CancellationToken.is_cancelled">is_cancelled() (autogen_core.base.CancellationToken method)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.Subscription.is_match">is_match() (autogen_core.base.Subscription method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.TypePrefixSubscription.is_match">(autogen_core.components.TypePrefixSubscription method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.TypeSubscription.is_match">(autogen_core.components.TypeSubscription method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.MessageContext.is_rpc">is_rpc (autogen_core.base.MessageContext attribute)</a>
+</li>
+  </ul></td>
+  </tr>
+      </table>
+  
+  <h2 id="J">J</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.ModelCapabilities.json_output">json_output (autogen_core.components.models.ModelCapabilities attribute)</a>
+</li>
+  </ul></td>
+  </tr>
+      </table>
+  
+  <h2 id="K">K</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentId.key">key (autogen_core.base.AgentId property)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentMetadata.key">(autogen_core.base.AgentMetadata attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  </tr>
+      </table>
+  
+  <h2 id="L">L</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.lang_to_cmd">lang_to_cmd() (in module autogen_core.components.code_executor)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.tools.html#autogen_ext.tools.LangChainToolAdapter">LangChainToolAdapter (class in autogen_ext.tools)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.CodeBlock.language">language (autogen_core.components.code_executor.CodeBlock attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.CancellationToken.link_future">link_future() (autogen_core.base.CancellationToken method)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.logging.events.html#autogen_core.application.logging.events.LLMCallEvent">LLMCallEvent (class in autogen_core.application.logging.events)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.logging.html#autogen_core.application.logging.LLMUsageTracker">LLMUsageTracker (class in autogen_core.application.logging)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.SingleThreadedAgentRuntime.load_state">load_state() (autogen_core.application.SingleThreadedAgentRuntime method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.WorkerAgentRuntime.load_state">(autogen_core.application.WorkerAgentRuntime method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.Agent.load_state">(autogen_core.base.Agent method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentProxy.load_state">(autogen_core.base.AgentProxy method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentRuntime.load_state">(autogen_core.base.AgentRuntime method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.BaseAgent.load_state">(autogen_core.base.BaseAgent method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.ClosureAgent.load_state">(autogen_core.components.ClosureAgent method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.model_context.html#autogen_core.components.model_context.BufferedChatCompletionContext.load_state">(autogen_core.components.model_context.BufferedChatCompletionContext method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.model_context.html#autogen_core.components.model_context.ChatCompletionContext.load_state">(autogen_core.components.model_context.ChatCompletionContext method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.model_context.html#autogen_core.components.model_context.HeadAndTailChatCompletionContext.load_state">(autogen_core.components.model_context.HeadAndTailChatCompletionContext method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.BaseToolWithState.load_state">(autogen_core.components.tools.BaseToolWithState method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.BaseTool.load_state_json">load_state_json() (autogen_core.components.tools.BaseTool method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.BaseToolWithState.load_state_json">(autogen_core.components.tools.BaseToolWithState method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.Tool.load_state_json">(autogen_core.components.tools.Tool method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.LocalCommandLineCodeExecutor">LocalCommandLineCodeExecutor (class in autogen_core.components.code_executor)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.AzureOpenAIClientConfiguration.logit_bias">logit_bias (autogen_ext.models.AzureOpenAIClientConfiguration attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.OpenAIClientConfiguration.logit_bias">(autogen_ext.models.OpenAIClientConfiguration attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.ChatCompletionTokenLogprob.logprob">logprob (autogen_core.components.models.ChatCompletionTokenLogprob attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.TopLogprob.logprob">(autogen_core.components.models.TopLogprob attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.CreateResult.logprobs">logprobs (autogen_core.components.models.CreateResult attribute)</a>
+</li>
+  </ul></td>
+  </tr>
+      </table>
+  
+  <h2 id="M">M</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.teams.html#autogen_agentchat.teams.MagenticOneGroupChat">MagenticOneGroupChat (class in autogen_agentchat.teams)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.Subscription.map_to_agent">map_to_agent() (autogen_core.base.Subscription method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.TypePrefixSubscription.map_to_agent">(autogen_core.components.TypePrefixSubscription method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.TypeSubscription.map_to_agent">(autogen_core.components.TypeSubscription method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.AzureOpenAIClientConfiguration.max_retries">max_retries (autogen_ext.models.AzureOpenAIClientConfiguration attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.OpenAIClientConfiguration.max_retries">(autogen_ext.models.OpenAIClientConfiguration attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.AzureOpenAIClientConfiguration.max_tokens">max_tokens (autogen_ext.models.AzureOpenAIClientConfiguration attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.OpenAIClientConfiguration.max_tokens">(autogen_ext.models.OpenAIClientConfiguration attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#autogen_agentchat.task.MaxMessageTermination">MaxMessageTermination (class in autogen_agentchat.task)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.Handoff.message">message (autogen_agentchat.agents.Handoff attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.message_handler">message_handler() (in module autogen_core.components)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.MessageContext.message_id">message_id (autogen_core.base.MessageContext attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.MessageContext">MessageContext (class in autogen_core.base)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.exceptions.html#autogen_core.base.exceptions.MessageDroppedException">MessageDroppedException</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.logging.events.html#autogen_core.application.logging.events.MessageEvent">MessageEvent (class in autogen_core.application.logging.events)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.MessageHandlerContext">MessageHandlerContext (class in autogen_core.base)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.logging.events.html#autogen_core.application.logging.events.MessageKind">MessageKind (class in autogen_core.application.logging.events)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.telemetry.html#autogen_core.application.telemetry.MessageRuntimeTracingConfig">MessageRuntimeTracingConfig (class in autogen_core.application.telemetry)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.base.html#autogen_agentchat.base.TaskResult.messages">messages (autogen_agentchat.base.TaskResult attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.agents.html#autogen_ext.agents.OpenAIAssistantAgent.messages">(autogen_ext.agents.OpenAIAssistantAgent property)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.MessageSerializer">MessageSerializer (class in autogen_core.base)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.Agent.metadata">metadata (autogen_core.base.Agent property)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentProxy.metadata">(autogen_core.base.AgentProxy property)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.BaseAgent.metadata">(autogen_core.base.BaseAgent property)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.ClosureAgent.metadata">(autogen_core.components.ClosureAgent property)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.AzureOpenAIClientConfiguration.model">model (autogen_ext.models.AzureOpenAIClientConfiguration attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.OpenAIClientConfiguration.model">(autogen_ext.models.OpenAIClientConfiguration attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.AzureOpenAIClientConfiguration.model_capabilities">model_capabilities (autogen_ext.models.AzureOpenAIClientConfiguration attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.OpenAIClientConfiguration.model_capabilities">(autogen_ext.models.OpenAIClientConfiguration attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.Handoff.model_computed_fields">model_computed_fields (autogen_agentchat.agents.Handoff attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.BaseMessage.model_computed_fields">(autogen_agentchat.messages.BaseMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.HandoffMessage.model_computed_fields">(autogen_agentchat.messages.HandoffMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.MultiModalMessage.model_computed_fields">(autogen_agentchat.messages.MultiModalMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.StopMessage.model_computed_fields">(autogen_agentchat.messages.StopMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.TextMessage.model_computed_fields">(autogen_agentchat.messages.TextMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.ToolCallMessage.model_computed_fields">(autogen_agentchat.messages.ToolCallMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.ToolCallResultMessage.model_computed_fields">(autogen_agentchat.messages.ToolCallResultMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.CodeExecutionInput.model_computed_fields">(autogen_core.components.tools.CodeExecutionInput attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.CodeExecutionResult.model_computed_fields">(autogen_core.components.tools.CodeExecutionResult attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.Handoff.model_config">model_config (autogen_agentchat.agents.Handoff attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.BaseMessage.model_config">(autogen_agentchat.messages.BaseMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.HandoffMessage.model_config">(autogen_agentchat.messages.HandoffMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.MultiModalMessage.model_config">(autogen_agentchat.messages.MultiModalMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.StopMessage.model_config">(autogen_agentchat.messages.StopMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.TextMessage.model_config">(autogen_agentchat.messages.TextMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.ToolCallMessage.model_config">(autogen_agentchat.messages.ToolCallMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.ToolCallResultMessage.model_config">(autogen_agentchat.messages.ToolCallResultMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.CodeExecutionInput.model_config">(autogen_core.components.tools.CodeExecutionInput attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.CodeExecutionResult.model_config">(autogen_core.components.tools.CodeExecutionResult attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.Handoff.model_fields">model_fields (autogen_agentchat.agents.Handoff attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.BaseMessage.model_fields">(autogen_agentchat.messages.BaseMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.HandoffMessage.model_fields">(autogen_agentchat.messages.HandoffMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.MultiModalMessage.model_fields">(autogen_agentchat.messages.MultiModalMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.StopMessage.model_fields">(autogen_agentchat.messages.StopMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.TextMessage.model_fields">(autogen_agentchat.messages.TextMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.ToolCallMessage.model_fields">(autogen_agentchat.messages.ToolCallMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.ToolCallResultMessage.model_fields">(autogen_agentchat.messages.ToolCallResultMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.CodeExecutionInput.model_fields">(autogen_core.components.tools.CodeExecutionInput attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.CodeExecutionResult.model_fields">(autogen_core.components.tools.CodeExecutionResult attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.ModelCapabilities">ModelCapabilities (class in autogen_core.components.models)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.BaseMessage.models_usage">models_usage (autogen_agentchat.messages.BaseMessage attribute)</a>
+</li>
+      <li>
+    module
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.html#module-autogen_agentchat">autogen_agentchat</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#module-autogen_agentchat.agents">autogen_agentchat.agents</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.base.html#module-autogen_agentchat.base">autogen_agentchat.base</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.logging.html#module-autogen_agentchat.logging">autogen_agentchat.logging</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#module-autogen_agentchat.messages">autogen_agentchat.messages</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#module-autogen_agentchat.task">autogen_agentchat.task</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.teams.html#module-autogen_agentchat.teams">autogen_agentchat.teams</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.html#module-autogen_core">autogen_core</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.application.html#module-autogen_core.application">autogen_core.application</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.application.logging.html#module-autogen_core.application.logging">autogen_core.application.logging</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.application.logging.events.html#module-autogen_core.application.logging.events">autogen_core.application.logging.events</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.application.telemetry.html#module-autogen_core.application.telemetry">autogen_core.application.telemetry</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#module-autogen_core.base">autogen_core.base</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.exceptions.html#module-autogen_core.base.exceptions">autogen_core.base.exceptions</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.intervention.html#module-autogen_core.base.intervention">autogen_core.base.intervention</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.html#module-autogen_core.components">autogen_core.components</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#module-autogen_core.components.code_executor">autogen_core.components.code_executor</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.model_context.html#module-autogen_core.components.model_context">autogen_core.components.model_context</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.models.html#module-autogen_core.components.models">autogen_core.components.models</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.tool_agent.html#module-autogen_core.components.tool_agent">autogen_core.components.tool_agent</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#module-autogen_core.components.tools">autogen_core.components.tools</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.html#module-autogen_ext">autogen_ext</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.agents.html#module-autogen_ext.agents">autogen_ext.agents</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.agents.video_surfer.html#module-autogen_ext.agents.video_surfer">autogen_ext.agents.video_surfer</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.agents.video_surfer.tools.html#module-autogen_ext.agents.video_surfer.tools">autogen_ext.agents.video_surfer.tools</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.agents.web_surfer.html#module-autogen_ext.agents.web_surfer">autogen_ext.agents.web_surfer</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#module-autogen_ext.code_executors">autogen_ext.code_executors</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.models.html#module-autogen_ext.models">autogen_ext.models</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.tools.html#module-autogen_ext.tools">autogen_ext.tools</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.ImportFromModule.module">module (autogen_core.components.code_executor.ImportFromModule attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.MultiModalMessage">MultiModalMessage (class in autogen_agentchat.messages)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.agents.web_surfer.html#autogen_ext.agents.web_surfer.MultimodalWebSurfer">MultimodalWebSurfer (class in autogen_ext.agents.web_surfer)</a>
+</li>
+  </ul></td>
+  </tr>
+      </table>
+  
+  <h2 id="N">N</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.AzureOpenAIClientConfiguration.n">n (autogen_ext.models.AzureOpenAIClientConfiguration attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.OpenAIClientConfiguration.n">(autogen_ext.models.OpenAIClientConfiguration attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.BaseChatAgent.name">name (autogen_agentchat.agents.BaseChatAgent property)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.Handoff.name">(autogen_agentchat.agents.Handoff attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.base.html#autogen_agentchat.base.ChatAgent.name">(autogen_agentchat.base.ChatAgent property)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.application.telemetry.html#autogen_core.application.telemetry.MessageRuntimeTracingConfig.name">(autogen_core.application.telemetry.MessageRuntimeTracingConfig property)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.Alias.name">(autogen_core.components.code_executor.Alias attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.FunctionCall.name">(autogen_core.components.FunctionCall attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.BaseTool.name">(autogen_core.components.tools.BaseTool property)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.Tool.name">(autogen_core.components.tools.Tool property)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.ToolSchema.name">(autogen_core.components.tools.ToolSchema attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  </tr>
+      </table>
+  
+  <h2 id="O">O</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.Agent.on_message">on_message() (autogen_core.base.Agent method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.BaseAgent.on_message">(autogen_core.base.BaseAgent method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.ClosureAgent.on_message">(autogen_core.components.ClosureAgent method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.RoutedAgent.on_message">(autogen_core.components.RoutedAgent method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.AssistantAgent.on_messages">on_messages() (autogen_agentchat.agents.AssistantAgent method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.BaseChatAgent.on_messages">(autogen_agentchat.agents.BaseChatAgent method)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.CodeExecutorAgent.on_messages">(autogen_agentchat.agents.CodeExecutorAgent method)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.SocietyOfMindAgent.on_messages">(autogen_agentchat.agents.SocietyOfMindAgent method)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.UserProxyAgent.on_messages">(autogen_agentchat.agents.UserProxyAgent method)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.base.html#autogen_agentchat.base.ChatAgent.on_messages">(autogen_agentchat.base.ChatAgent method)</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.agents.html#autogen_ext.agents.OpenAIAssistantAgent.on_messages">(autogen_ext.agents.OpenAIAssistantAgent method)</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.agents.web_surfer.html#autogen_ext.agents.web_surfer.MultimodalWebSurfer.on_messages">(autogen_ext.agents.web_surfer.MultimodalWebSurfer method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.AssistantAgent.on_messages_stream">on_messages_stream() (autogen_agentchat.agents.AssistantAgent method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.BaseChatAgent.on_messages_stream">(autogen_agentchat.agents.BaseChatAgent method)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.SocietyOfMindAgent.on_messages_stream">(autogen_agentchat.agents.SocietyOfMindAgent method)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.base.html#autogen_agentchat.base.ChatAgent.on_messages_stream">(autogen_agentchat.base.ChatAgent method)</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.agents.html#autogen_ext.agents.OpenAIAssistantAgent.on_messages_stream">(autogen_ext.agents.OpenAIAssistantAgent method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.intervention.html#autogen_core.base.intervention.DefaultInterventionHandler.on_publish">on_publish() (autogen_core.base.intervention.DefaultInterventionHandler method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.base.intervention.html#autogen_core.base.intervention.InterventionHandler.on_publish">(autogen_core.base.intervention.InterventionHandler method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.AssistantAgent.on_reset">on_reset() (autogen_agentchat.agents.AssistantAgent method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.BaseChatAgent.on_reset">(autogen_agentchat.agents.BaseChatAgent method)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.CodeExecutorAgent.on_reset">(autogen_agentchat.agents.CodeExecutorAgent method)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.SocietyOfMindAgent.on_reset">(autogen_agentchat.agents.SocietyOfMindAgent method)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.UserProxyAgent.on_reset">(autogen_agentchat.agents.UserProxyAgent method)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.base.html#autogen_agentchat.base.ChatAgent.on_reset">(autogen_agentchat.base.ChatAgent method)</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.agents.html#autogen_ext.agents.OpenAIAssistantAgent.on_reset">(autogen_ext.agents.OpenAIAssistantAgent method)</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.agents.web_surfer.html#autogen_ext.agents.web_surfer.MultimodalWebSurfer.on_reset">(autogen_ext.agents.web_surfer.MultimodalWebSurfer method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_core/autogen_core.base.intervention.html#autogen_core.base.intervention.DefaultInterventionHandler.on_response">on_response() (autogen_core.base.intervention.DefaultInterventionHandler method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.base.intervention.html#autogen_core.base.intervention.InterventionHandler.on_response">(autogen_core.base.intervention.InterventionHandler method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.intervention.html#autogen_core.base.intervention.DefaultInterventionHandler.on_send">on_send() (autogen_core.base.intervention.DefaultInterventionHandler method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.base.intervention.html#autogen_core.base.intervention.InterventionHandler.on_send">(autogen_core.base.intervention.InterventionHandler method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.RoutedAgent.on_unhandled_message">on_unhandled_message() (autogen_core.components.RoutedAgent method)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.agents.html#autogen_ext.agents.OpenAIAssistantAgent.on_upload_for_code_interpreter">on_upload_for_code_interpreter() (autogen_ext.agents.OpenAIAssistantAgent method)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.agents.html#autogen_ext.agents.OpenAIAssistantAgent.on_upload_for_file_search">on_upload_for_file_search() (autogen_ext.agents.OpenAIAssistantAgent method)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.agents.html#autogen_ext.agents.OpenAIAssistantAgent">OpenAIAssistantAgent (class in autogen_ext.agents)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.OpenAIChatCompletionClient">OpenAIChatCompletionClient (class in autogen_ext.models)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.OpenAIClientConfiguration">OpenAIClientConfiguration (class in autogen_ext.models)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.OpenAIClientConfiguration.organization">organization (autogen_ext.models.OpenAIClientConfiguration attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.CodeResult.output">output (autogen_core.components.code_executor.CodeResult attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.CodeExecutionResult.output">(autogen_core.components.tools.CodeExecutionResult attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.SingleThreadedAgentRuntime.outstanding_tasks">outstanding_tasks (autogen_core.application.SingleThreadedAgentRuntime property)</a>
+</li>
+  </ul></td>
+  </tr>
+      </table>
+  
+  <h2 id="P">P</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.ToolSchema.parameters">parameters (autogen_core.components.tools.ToolSchema attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.ParametersSchema">ParametersSchema (class in autogen_core.components.tools)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.UnknownPayload.payload">payload (autogen_core.base.UnknownPayload attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.AzureOpenAIClientConfiguration.presence_penalty">presence_penalty (autogen_ext.models.AzureOpenAIClientConfiguration attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.OpenAIClientConfiguration.presence_penalty">(autogen_ext.models.OpenAIClientConfiguration attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.SingleThreadedAgentRuntime.process_next">process_next() (autogen_core.application.SingleThreadedAgentRuntime method)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.AssistantAgent.produced_message_types">produced_message_types (autogen_agentchat.agents.AssistantAgent property)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.BaseChatAgent.produced_message_types">(autogen_agentchat.agents.BaseChatAgent property)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.CodeExecutorAgent.produced_message_types">(autogen_agentchat.agents.CodeExecutorAgent property)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.SocietyOfMindAgent.produced_message_types">(autogen_agentchat.agents.SocietyOfMindAgent property)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.UserProxyAgent.produced_message_types">(autogen_agentchat.agents.UserProxyAgent property)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.base.html#autogen_agentchat.base.ChatAgent.produced_message_types">(autogen_agentchat.base.ChatAgent property)</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.agents.html#autogen_ext.agents.OpenAIAssistantAgent.produced_message_types">(autogen_ext.agents.OpenAIAssistantAgent property)</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.agents.web_surfer.html#autogen_ext.agents.web_surfer.MultimodalWebSurfer.produced_message_types">(autogen_ext.agents.web_surfer.MultimodalWebSurfer property)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_core/autogen_core.application.logging.events.html#autogen_core.application.logging.events.LLMCallEvent.prompt_tokens">prompt_tokens (autogen_core.application.logging.events.LLMCallEvent property)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.application.logging.events.html#autogen_core.application.logging.events.MessageEvent.prompt_tokens">(autogen_core.application.logging.events.MessageEvent property)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.application.logging.html#autogen_core.application.logging.LLMUsageTracker.prompt_tokens">(autogen_core.application.logging.LLMUsageTracker property)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.RequestUsage.prompt_tokens">(autogen_core.components.models.RequestUsage attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.ParametersSchema.properties">properties (autogen_core.components.tools.ParametersSchema attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.logging.events.html#autogen_core.application.logging.events.MessageKind.PUBLISH">PUBLISH (autogen_core.application.logging.events.MessageKind attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.SingleThreadedAgentRuntime.publish_message">publish_message() (autogen_core.application.SingleThreadedAgentRuntime method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.WorkerAgentRuntime.publish_message">(autogen_core.application.WorkerAgentRuntime method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentRuntime.publish_message">(autogen_core.base.AgentRuntime method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.BaseAgent.publish_message">(autogen_core.base.BaseAgent method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.ClosureContext.publish_message">(autogen_core.components.ClosureContext method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.FunctionWithRequirements.python_packages">python_packages (autogen_core.components.code_executor.FunctionWithRequirements attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.FunctionWithRequirementsStr.python_packages">(autogen_core.components.code_executor.FunctionWithRequirementsStr attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.PythonCodeExecutionTool">PythonCodeExecutionTool (class in autogen_core.components.tools)</a>
+</li>
+  </ul></td>
+  </tr>
+      </table>
+  
+  <h2 id="R">R</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.SingleThreadedAgentRuntime.register">register() (autogen_core.application.SingleThreadedAgentRuntime method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.WorkerAgentRuntime.register">(autogen_core.application.WorkerAgentRuntime method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentRuntime.register">(autogen_core.base.AgentRuntime method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.BaseAgent.register">(autogen_core.base.BaseAgent class method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.ClosureAgent.register_closure">register_closure() (autogen_core.components.ClosureAgent class method)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.SingleThreadedAgentRuntime.register_factory">register_factory() (autogen_core.application.SingleThreadedAgentRuntime method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.WorkerAgentRuntime.register_factory">(autogen_core.application.WorkerAgentRuntime method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentRuntime.register_factory">(autogen_core.base.AgentRuntime method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.ChatCompletionClient.remaining_tokens">remaining_tokens() (autogen_core.components.models.ChatCompletionClient method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.ReplayChatCompletionClient.remaining_tokens">(autogen_ext.models.ReplayChatCompletionClient method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.SingleThreadedAgentRuntime.remove_subscription">remove_subscription() (autogen_core.application.SingleThreadedAgentRuntime method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.WorkerAgentRuntime.remove_subscription">(autogen_core.application.WorkerAgentRuntime method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentRuntime.remove_subscription">(autogen_core.base.AgentRuntime method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.ReplayChatCompletionClient">ReplayChatCompletionClient (class in autogen_ext.models)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.RequestUsage">RequestUsage (class in autogen_core.components.models)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.ParametersSchema.required">required (autogen_core.components.tools.ParametersSchema attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.base.html#autogen_agentchat.base.Team.reset">reset() (autogen_agentchat.base.Team method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.base.html#autogen_agentchat.base.TerminationCondition.reset">(autogen_agentchat.base.TerminationCondition method)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#autogen_agentchat.task.ExternalTermination.reset">(autogen_agentchat.task.ExternalTermination method)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#autogen_agentchat.task.HandoffTermination.reset">(autogen_agentchat.task.HandoffTermination method)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#autogen_agentchat.task.MaxMessageTermination.reset">(autogen_agentchat.task.MaxMessageTermination method)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#autogen_agentchat.task.SourceMatchTermination.reset">(autogen_agentchat.task.SourceMatchTermination method)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#autogen_agentchat.task.StopMessageTermination.reset">(autogen_agentchat.task.StopMessageTermination method)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#autogen_agentchat.task.TextMentionTermination.reset">(autogen_agentchat.task.TextMentionTermination method)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#autogen_agentchat.task.TimeoutTermination.reset">(autogen_agentchat.task.TimeoutTermination method)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#autogen_agentchat.task.TokenUsageTermination.reset">(autogen_agentchat.task.TokenUsageTermination method)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.teams.html#autogen_agentchat.teams.BaseGroupChat.reset">(autogen_agentchat.teams.BaseGroupChat method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.application.logging.html#autogen_core.application.logging.LLMUsageTracker.reset">(autogen_core.application.logging.LLMUsageTracker method)</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.ReplayChatCompletionClient.reset">(autogen_ext.models.ReplayChatCompletionClient method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.logging.events.html#autogen_core.application.logging.events.MessageKind.RESPOND">RESPOND (autogen_core.application.logging.events.MessageKind attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.base.html#autogen_agentchat.base.Response">Response (class in autogen_agentchat.base)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.AzureOpenAIClientConfiguration.response_format">response_format (autogen_ext.models.AzureOpenAIClientConfiguration attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.OpenAIClientConfiguration.response_format">(autogen_ext.models.OpenAIClientConfiguration attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.CodeExecutor.restart">restart() (autogen_core.components.code_executor.CodeExecutor method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.LocalCommandLineCodeExecutor.restart">(autogen_core.components.code_executor.LocalCommandLineCodeExecutor method)</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#autogen_ext.code_executors.ACADynamicSessionsCodeExecutor.restart">(autogen_ext.code_executors.ACADynamicSessionsCodeExecutor method)</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#autogen_ext.code_executors.DockerCommandLineCodeExecutor.restart">(autogen_ext.code_executors.DockerCommandLineCodeExecutor method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.BaseTool.return_type">return_type() (autogen_core.components.tools.BaseTool method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.Tool.return_type">(autogen_core.components.tools.Tool method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.BaseTool.return_value_as_string">return_value_as_string() (autogen_core.components.tools.BaseTool method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.Tool.return_value_as_string">(autogen_core.components.tools.Tool method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.logging.html#autogen_core.application.logging.ROOT_LOGGER_NAME">ROOT_LOGGER_NAME (in module autogen_core.application.logging)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.teams.html#autogen_agentchat.teams.RoundRobinGroupChat">RoundRobinGroupChat (class in autogen_agentchat.teams)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.RoutedAgent">RoutedAgent (class in autogen_core.components)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.rpc">rpc() (in module autogen_core.components)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.BaseChatAgent.run">run() (autogen_agentchat.agents.BaseChatAgent method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.base.html#autogen_agentchat.base.TaskRunner.run">(autogen_agentchat.base.TaskRunner method)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.teams.html#autogen_agentchat.teams.BaseGroupChat.run">(autogen_agentchat.teams.BaseGroupChat method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.BaseTool.run">(autogen_core.components.tools.BaseTool method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.FunctionTool.run">(autogen_core.components.tools.FunctionTool method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.PythonCodeExecutionTool.run">(autogen_core.components.tools.PythonCodeExecutionTool method)</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.tools.html#autogen_ext.tools.LangChainToolAdapter.run">(autogen_ext.tools.LangChainToolAdapter method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.BaseTool.run_json">run_json() (autogen_core.components.tools.BaseTool method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.Tool.run_json">(autogen_core.components.tools.Tool method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.BaseChatAgent.run_stream">run_stream() (autogen_agentchat.agents.BaseChatAgent method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.base.html#autogen_agentchat.base.TaskRunner.run_stream">(autogen_agentchat.base.TaskRunner method)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.teams.html#autogen_agentchat.teams.BaseGroupChat.run_stream">(autogen_agentchat.teams.BaseGroupChat method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.agents.html#autogen_ext.agents.OpenAIAssistantAgent.runs">runs (autogen_ext.agents.OpenAIAssistantAgent property)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.BaseAgent.runtime">runtime (autogen_core.base.BaseAgent property)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.ClosureAgent.runtime">(autogen_core.components.ClosureAgent property)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  </tr>
+      </table>
+  
+  <h2 id="S">S</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_ext/autogen_ext.agents.video_surfer.tools.html#autogen_ext.agents.video_surfer.tools.save_screenshot">save_screenshot() (in module autogen_ext.agents.video_surfer.tools)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.SingleThreadedAgentRuntime.save_state">save_state() (autogen_core.application.SingleThreadedAgentRuntime method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.WorkerAgentRuntime.save_state">(autogen_core.application.WorkerAgentRuntime method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.Agent.save_state">(autogen_core.base.Agent method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentProxy.save_state">(autogen_core.base.AgentProxy method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentRuntime.save_state">(autogen_core.base.AgentRuntime method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.BaseAgent.save_state">(autogen_core.base.BaseAgent method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.ClosureAgent.save_state">(autogen_core.components.ClosureAgent method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.model_context.html#autogen_core.components.model_context.BufferedChatCompletionContext.save_state">(autogen_core.components.model_context.BufferedChatCompletionContext method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.model_context.html#autogen_core.components.model_context.ChatCompletionContext.save_state">(autogen_core.components.model_context.ChatCompletionContext method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.model_context.html#autogen_core.components.model_context.HeadAndTailChatCompletionContext.save_state">(autogen_core.components.model_context.HeadAndTailChatCompletionContext method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.BaseToolWithState.save_state">(autogen_core.components.tools.BaseToolWithState method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.BaseTool.save_state_json">save_state_json() (autogen_core.components.tools.BaseTool method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.BaseToolWithState.save_state_json">(autogen_core.components.tools.BaseToolWithState method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.Tool.save_state_json">(autogen_core.components.tools.Tool method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.BaseTool.schema">schema (autogen_core.components.tools.BaseTool property)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.Tool.schema">(autogen_core.components.tools.Tool property)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.AzureOpenAIClientConfiguration.seed">seed (autogen_ext.models.AzureOpenAIClientConfiguration attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.OpenAIClientConfiguration.seed">(autogen_ext.models.OpenAIClientConfiguration attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.teams.html#autogen_agentchat.teams.SelectorGroupChat">SelectorGroupChat (class in autogen_agentchat.teams)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.logging.events.html#autogen_core.application.logging.events.DeliveryStage.SEND">SEND (autogen_core.application.logging.events.DeliveryStage attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.SingleThreadedAgentRuntime.send_message">send_message() (autogen_core.application.SingleThreadedAgentRuntime method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.WorkerAgentRuntime.send_message">(autogen_core.application.WorkerAgentRuntime method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentProxy.send_message">(autogen_core.base.AgentProxy method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentRuntime.send_message">(autogen_core.base.AgentRuntime method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.BaseAgent.send_message">(autogen_core.base.BaseAgent method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.ClosureContext.send_message">(autogen_core.components.ClosureContext method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.MessageContext.sender">sender (autogen_core.base.MessageContext attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.CodeExecutionResult.ser_model">ser_model() (autogen_core.components.tools.CodeExecutionResult method)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.MessageSerializer.serialize">serialize() (autogen_core.base.MessageSerializer method)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#autogen_agentchat.task.ExternalTermination.set">set() (autogen_agentchat.task.ExternalTermination method)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.Handoff.set_defaults">set_defaults() (autogen_agentchat.agents.Handoff class method)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.silence_pip">silence_pip() (in module autogen_core.components.code_executor)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.SingleThreadedAgentRuntime">SingleThreadedAgentRuntime (class in autogen_core.application)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.SocietyOfMindAgent">SocietyOfMindAgent (class in autogen_agentchat.agents)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.BaseMessage.source">source (autogen_agentchat.messages.BaseMessage attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.TopicId.source">(autogen_core.base.TopicId attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.AssistantMessage.source">(autogen_core.components.models.AssistantMessage attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.UserMessage.source">(autogen_core.components.models.UserMessage attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#autogen_agentchat.task.SourceMatchTermination">SourceMatchTermination (class in autogen_agentchat.task)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.SingleThreadedAgentRuntime.start">start() (autogen_core.application.SingleThreadedAgentRuntime method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.WorkerAgentRuntime.start">(autogen_core.application.WorkerAgentRuntime method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.WorkerAgentRuntimeHost.start">(autogen_core.application.WorkerAgentRuntimeHost method)</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#autogen_ext.code_executors.DockerCommandLineCodeExecutor.start">(autogen_ext.code_executors.DockerCommandLineCodeExecutor method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.BaseTool.state_type">state_type() (autogen_core.components.tools.BaseTool method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.Tool.state_type">(autogen_core.components.tools.Tool method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.AzureOpenAIClientConfiguration.stop">stop (autogen_ext.models.AzureOpenAIClientConfiguration attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.OpenAIClientConfiguration.stop">(autogen_ext.models.OpenAIClientConfiguration attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.SingleThreadedAgentRuntime.stop">stop() (autogen_core.application.SingleThreadedAgentRuntime method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.WorkerAgentRuntime.stop">(autogen_core.application.WorkerAgentRuntime method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.WorkerAgentRuntimeHost.stop">(autogen_core.application.WorkerAgentRuntimeHost method)</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#autogen_ext.code_executors.DockerCommandLineCodeExecutor.stop">(autogen_ext.code_executors.DockerCommandLineCodeExecutor method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.base.html#autogen_agentchat.base.TaskResult.stop_reason">stop_reason (autogen_agentchat.base.TaskResult attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.SingleThreadedAgentRuntime.stop_when">stop_when() (autogen_core.application.SingleThreadedAgentRuntime method)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.SingleThreadedAgentRuntime.stop_when_idle">stop_when_idle() (autogen_core.application.SingleThreadedAgentRuntime method)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.WorkerAgentRuntime.stop_when_signal">stop_when_signal() (autogen_core.application.WorkerAgentRuntime method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.WorkerAgentRuntimeHost.stop_when_signal">(autogen_core.application.WorkerAgentRuntimeHost method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.StopMessage">StopMessage (class in autogen_agentchat.messages)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#autogen_agentchat.task.StopMessageTermination">StopMessageTermination (class in autogen_agentchat.task)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.Subscription">Subscription (class in autogen_core.base)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.SubscriptionInstantiationContext">SubscriptionInstantiationContext (class in autogen_core.base)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.CodeExecutionResult.success">success (autogen_core.components.tools.CodeExecutionResult attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.LocalCommandLineCodeExecutor.SUPPORTED_LANGUAGES">SUPPORTED_LANGUAGES (autogen_core.components.code_executor.LocalCommandLineCodeExecutor attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#autogen_ext.code_executors.ACADynamicSessionsCodeExecutor.SUPPORTED_LANGUAGES">(autogen_ext.code_executors.ACADynamicSessionsCodeExecutor attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#autogen_ext.code_executors.DockerCommandLineCodeExecutor.SUPPORTED_LANGUAGES">(autogen_ext.code_executors.DockerCommandLineCodeExecutor attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.teams.html#autogen_agentchat.teams.Swarm">Swarm (class in autogen_agentchat.teams)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.SystemMessage">SystemMessage (class in autogen_core.components.models)</a>
+</li>
+  </ul></td>
+  </tr>
+      </table>
+  
+  <h2 id="T">T</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.Handoff.target">target (autogen_agentchat.agents.Handoff attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.HandoffMessage.target">(autogen_agentchat.messages.HandoffMessage attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.base.html#autogen_agentchat.base.TaskResult">TaskResult (class in autogen_agentchat.base)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.base.html#autogen_agentchat.base.TaskRunner">TaskRunner (class in autogen_agentchat.base)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.base.html#autogen_agentchat.base.Team">Team (class in autogen_agentchat.base)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.AzureOpenAIClientConfiguration.temperature">temperature (autogen_ext.models.AzureOpenAIClientConfiguration attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.OpenAIClientConfiguration.temperature">(autogen_ext.models.OpenAIClientConfiguration attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.base.html#autogen_agentchat.base.TerminationCondition.terminated">terminated (autogen_agentchat.base.TerminationCondition property)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#autogen_agentchat.task.ExternalTermination.terminated">(autogen_agentchat.task.ExternalTermination property)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#autogen_agentchat.task.HandoffTermination.terminated">(autogen_agentchat.task.HandoffTermination property)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#autogen_agentchat.task.MaxMessageTermination.terminated">(autogen_agentchat.task.MaxMessageTermination property)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#autogen_agentchat.task.SourceMatchTermination.terminated">(autogen_agentchat.task.SourceMatchTermination property)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#autogen_agentchat.task.StopMessageTermination.terminated">(autogen_agentchat.task.StopMessageTermination property)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#autogen_agentchat.task.TextMentionTermination.terminated">(autogen_agentchat.task.TextMentionTermination property)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#autogen_agentchat.task.TimeoutTermination.terminated">(autogen_agentchat.task.TimeoutTermination property)</a>
+</li>
+        <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#autogen_agentchat.task.TokenUsageTermination.terminated">(autogen_agentchat.task.TokenUsageTermination property)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.base.html#autogen_agentchat.base.TerminatedException">TerminatedException</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.base.html#autogen_agentchat.base.TerminationCondition">TerminationCondition (class in autogen_agentchat.base)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#autogen_agentchat.task.TextMentionTermination">TextMentionTermination (class in autogen_agentchat.task)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.TextMessage">TextMessage (class in autogen_agentchat.messages)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.agents.html#autogen_ext.agents.OpenAIAssistantAgent.threads">threads (autogen_ext.agents.OpenAIAssistantAgent property)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.LocalCommandLineCodeExecutor.timeout">timeout (autogen_core.components.code_executor.LocalCommandLineCodeExecutor property)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#autogen_ext.code_executors.ACADynamicSessionsCodeExecutor.timeout">(autogen_ext.code_executors.ACADynamicSessionsCodeExecutor property)</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#autogen_ext.code_executors.DockerCommandLineCodeExecutor.timeout">(autogen_ext.code_executors.DockerCommandLineCodeExecutor property)</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.AzureOpenAIClientConfiguration.timeout">(autogen_ext.models.AzureOpenAIClientConfiguration attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.OpenAIClientConfiguration.timeout">(autogen_ext.models.OpenAIClientConfiguration attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#autogen_agentchat.task.TimeoutTermination">TimeoutTermination (class in autogen_agentchat.task)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.Image.to_base64">to_base64() (autogen_core.components.Image method)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.Image.to_openai_format">to_openai_format() (autogen_core.components.Image method)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.to_stub">to_stub() (in module autogen_core.components.code_executor)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.ChatCompletionTokenLogprob.token">token (autogen_core.components.models.ChatCompletionTokenLogprob attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#autogen_ext.code_executors.TokenProvider">TokenProvider (class in autogen_ext.code_executors)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.logging.html#autogen_core.application.logging.LLMUsageTracker.tokens">tokens (autogen_core.application.logging.LLMUsageTracker property)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.task.html#autogen_agentchat.task.TokenUsageTermination">TokenUsageTermination (class in autogen_agentchat.task)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.Tool">Tool (class in autogen_core.components.tools)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.tool_agent.html#autogen_core.components.tool_agent.tool_agent_caller_loop">tool_agent_caller_loop() (in module autogen_core.components.tool_agent)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.tool_agent.html#autogen_core.components.tool_agent.ToolAgent">ToolAgent (class in autogen_core.components.tool_agent)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.ToolCallMessage">ToolCallMessage (class in autogen_agentchat.messages)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.messages.html#autogen_agentchat.messages.ToolCallResultMessage">ToolCallResultMessage (class in autogen_agentchat.messages)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.tool_agent.html#autogen_core.components.tool_agent.ToolException">ToolException</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.tool_agent.html#autogen_core.components.tool_agent.ToolExecutionException">ToolExecutionException</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.tool_agent.html#autogen_core.components.tool_agent.ToolNotFoundException">ToolNotFoundException</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.tool_agent.html#autogen_core.components.tool_agent.ToolAgent.tools">tools (autogen_core.components.tool_agent.ToolAgent property)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.ToolSchema">ToolSchema (class in autogen_core.components.tools)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.ToolUseAssistantAgent">ToolUseAssistantAgent (class in autogen_agentchat.agents)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.ChatCompletionTokenLogprob.top_logprobs">top_logprobs (autogen_core.components.models.ChatCompletionTokenLogprob attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.AzureOpenAIClientConfiguration.top_p">top_p (autogen_ext.models.AzureOpenAIClientConfiguration attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.OpenAIClientConfiguration.top_p">(autogen_ext.models.OpenAIClientConfiguration attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.MessageContext.topic_id">topic_id (autogen_core.base.MessageContext attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.TypeSubscription.topic_type">topic_type (autogen_core.components.TypeSubscription property)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.TypePrefixSubscription.topic_type_prefix">topic_type_prefix (autogen_core.components.TypePrefixSubscription property)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.TopicId">TopicId (class in autogen_core.base)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.TopLogprob">TopLogprob (class in autogen_core.components.models)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.ChatCompletionClient.total_usage">total_usage() (autogen_core.components.models.ChatCompletionClient method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.ReplayChatCompletionClient.total_usage">(autogen_ext.models.ReplayChatCompletionClient method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.telemetry.html#autogen_core.application.telemetry.TraceHelper.trace_block">trace_block() (autogen_core.application.telemetry.TraceHelper method)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.logging.html#autogen_core.application.logging.TRACE_LOGGER_NAME">TRACE_LOGGER_NAME (in module autogen_core.application.logging)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.telemetry.html#autogen_core.application.telemetry.TraceHelper">TraceHelper (class in autogen_core.application.telemetry)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.telemetry.html#autogen_core.application.telemetry.EnvelopeMetadata.traceparent">traceparent (autogen_core.application.telemetry.EnvelopeMetadata attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.telemetry.html#autogen_core.application.telemetry.EnvelopeMetadata.tracestate">tracestate (autogen_core.application.telemetry.EnvelopeMetadata attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.agents.video_surfer.tools.html#autogen_ext.agents.video_surfer.tools.transcribe_audio_with_timestamps">transcribe_audio_with_timestamps() (in module autogen_ext.agents.video_surfer.tools)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.agents.video_surfer.tools.html#autogen_ext.agents.video_surfer.tools.transcribe_video_screenshot">transcribe_video_screenshot() (in module autogen_ext.agents.video_surfer.tools)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.SingleThreadedAgentRuntime.try_get_underlying_agent_instance">try_get_underlying_agent_instance() (autogen_core.application.SingleThreadedAgentRuntime method)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.WorkerAgentRuntime.try_get_underlying_agent_instance">(autogen_core.application.WorkerAgentRuntime method)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentRuntime.try_get_underlying_agent_instance">(autogen_core.base.AgentRuntime method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentId.type">type (autogen_core.base.AgentId property)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentMetadata.type">(autogen_core.base.AgentMetadata attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.AgentType.type">(autogen_core.base.AgentType attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.BaseAgent.type">(autogen_core.base.BaseAgent property)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.TopicId.type">(autogen_core.base.TopicId attribute)</a>
+</li>
+        <li><a href="reference/python/autogen_core/autogen_core.components.tools.html#autogen_core.components.tools.ParametersSchema.type">(autogen_core.components.tools.ParametersSchema attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.MessageSerializer.type_name">type_name (autogen_core.base.MessageSerializer property)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.UnknownPayload.type_name">(autogen_core.base.UnknownPayload attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.type_subscription">type_subscription() (in module autogen_core.components)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.TypePrefixSubscription">TypePrefixSubscription (class in autogen_core.components)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.TypeRoutedAgent">TypeRoutedAgent (class in autogen_core.components)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.html#autogen_core.components.TypeSubscription">TypeSubscription (class in autogen_core.components)</a>
+</li>
+  </ul></td>
+  </tr>
+      </table>
+  
+  <h2 id="U">U</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_core/autogen_core.base.exceptions.html#autogen_core.base.exceptions.UndeliverableException">UndeliverableException</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.base.html#autogen_core.base.UnknownPayload">UnknownPayload (class in autogen_core.base)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.SingleThreadedAgentRuntime.unprocessed_messages">unprocessed_messages (autogen_core.application.SingleThreadedAgentRuntime property)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#autogen_ext.code_executors.ACADynamicSessionsCodeExecutor.upload_files">upload_files() (autogen_ext.code_executors.ACADynamicSessionsCodeExecutor method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.CreateResult.usage">usage (autogen_core.components.models.CreateResult attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.AzureOpenAIClientConfiguration.user">user (autogen_ext.models.AzureOpenAIClientConfiguration attribute)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.models.html#autogen_ext.models.OpenAIClientConfiguration.user">(autogen_ext.models.OpenAIClientConfiguration attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.UserMessage">UserMessage (class in autogen_core.components.models)</a>
+</li>
+      <li><a href="reference/python/autogen_agentchat/autogen_agentchat.agents.html#autogen_agentchat.agents.UserProxyAgent">UserProxyAgent (class in autogen_agentchat.agents)</a>
+</li>
+  </ul></td>
+  </tr>
+      </table>
+  
+  <h2 id="V">V</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_ext/autogen_ext.agents.video_surfer.html#autogen_ext.agents.video_surfer.VideoSurferAgent">VideoSurferAgent (class in autogen_ext.agents.video_surfer)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_core/autogen_core.components.models.html#autogen_core.components.models.ModelCapabilities.vision">vision (autogen_core.components.models.ModelCapabilities attribute)</a>
+</li>
+      <li><a href="reference/python/autogen_ext/autogen_ext.agents.video_surfer.html#autogen_ext.agents.video_surfer.VideoSurferAgent.vs_transribe_video_screenshot">vs_transribe_video_screenshot() (autogen_ext.agents.video_surfer.VideoSurferAgent method)</a>
+</li>
+  </ul></td>
+  </tr>
+      </table>
+  
+  <h2 id="W">W</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.with_requirements">with_requirements() (in module autogen_core.components.code_executor)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.components.code_executor.html#autogen_core.components.code_executor.LocalCommandLineCodeExecutor.work_dir">work_dir (autogen_core.components.code_executor.LocalCommandLineCodeExecutor property)</a>
+
+      <ul style="list-style-type:none">
+        <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#autogen_ext.code_executors.ACADynamicSessionsCodeExecutor.work_dir">(autogen_ext.code_executors.ACADynamicSessionsCodeExecutor property)</a>
+</li>
+        <li><a href="reference/python/autogen_ext/autogen_ext.code_executors.html#autogen_ext.code_executors.DockerCommandLineCodeExecutor.work_dir">(autogen_ext.code_executors.DockerCommandLineCodeExecutor property)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul style="margin-left:0;list-style-type:none">
+      <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.WorkerAgentRuntime">WorkerAgentRuntime (class in autogen_core.application)</a>
+</li>
+      <li><a href="reference/python/autogen_core/autogen_core.application.html#autogen_core.application.WorkerAgentRuntimeHost">WorkerAgentRuntimeHost (class in autogen_core.application)</a>
+</li>
+  </ul></td>
+  </tr>
+      </table>
+  
+
+</div></div>
+<aside id="right-sidebar" class="hidden text-sm xl:block">
+<div class="sticky top-16 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-6 space-y-2">
+<a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#A">A</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#B">B</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#C">C</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#D">D</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#E">E</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#F">F</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#G">G</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#H">H</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#I">I</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#J">J</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#K">K</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#L">L</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#M">M</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#N">N</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#O">O</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#P">P</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#R">R</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#S">S</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#T">T</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#U">U</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#V">V</a><a class="pt-2 block text-muted-foreground no-underline transition-colors hover:text-foreground focus-visible:outline-offset-[-1px]" href="#W">W</a>
+</div>
+</aside>
+          
+        </main>
+      </div>
+    </div><footer class="py-6 border-t border-border md:py-0">
+    <div class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
+      <div class="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
+        <p class="text-sm leading-loose text-center text-muted-foreground md:text-left">© 2024, Microsoft&nbsp;. Built with <a class="font-medium underline underline-offset-4"
+    href="https://www.sphinx-doc.org"
+    rel="noreferrer">Sphinx 8.1.3</a><ul class="list-unstyled text-sm leading-loose text-right text-muted-foreground md:text-right">
+        <li>  |  <a class="  underline underline-offset-4" href="https://go.microsoft.com/fwlink/?LinkId=521839">Privacy Policy</a> | <a class="  underline underline-offset-4"   href="https://go.microsoft.com/fwlink/?linkid=2259814">Consumer Health Privacy</a> </li>
+
+      </ul></p>
+</div>
+</div>
+</footer>
+  </div>
+  
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script defer="defer" src="_static/theme.js?v=073f68d9"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script></script>
+  
+</body>
+</html>
